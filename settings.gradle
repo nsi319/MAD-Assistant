@@ -1,0 +1,2 @@
+rootProject.name='MAD Assistant'
+include ':app'
