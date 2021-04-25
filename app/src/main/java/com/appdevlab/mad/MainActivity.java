@@ -15,10 +15,11 @@ public class MainActivity extends AppCompatActivity {
 
     final int GRID_ITEM_TV_ET = 0;
     final int GRID_ITEM_BTN = 1;
-    final int GRID_ITEM_SPINNER = 2;
-    final int GRID_ITEM_IV = 3;
-    final int GRID_ITEM_SEEKBAR = 4;
-    final int GRID_ITEM_PICKERS = 5;
+    final int GRID_ITEM_SEEKBAR = 2;
+    final int GRID_ITEM_PICKERS = 3;
+    final int GRID_ITEM_SPINNER = 4;
+    final int GRID_ITEM_IV = 5;
+
 
 
     @Override
@@ -54,14 +55,6 @@ public class MainActivity extends AppCompatActivity {
                             Intent iButtonComponentAct = new Intent(getApplicationContext(), ButtonComponentActivity.class);
                             startActivity(iButtonComponentAct);
                             break;
-                        case GRID_ITEM_SPINNER:
-                            Toast.makeText(getApplicationContext(), "Spinner", Toast.LENGTH_SHORT).show();
-
-                            break;
-                        case GRID_ITEM_IV:
-                            Toast.makeText(getApplicationContext(), "ImageView", Toast.LENGTH_SHORT).show();
-
-                            break;
                         case GRID_ITEM_SEEKBAR:
                             Toast.makeText(getApplicationContext(), "Seekbar", Toast.LENGTH_SHORT).show();
                             Intent iSeekbarComponentAct = new Intent(getApplicationContext(), SeekbarComponentActivity.class);
@@ -71,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Pickers", Toast.LENGTH_SHORT).show();
                             Intent iPickerComponentAct = new Intent(getApplicationContext(), PickerActivity.class);
                             startActivity(iPickerComponentAct);
+                            break;
+                        case GRID_ITEM_SPINNER:
+                            Toast.makeText(getApplicationContext(), "Spinner", Toast.LENGTH_SHORT).show();
+
+                            break;
+                        case GRID_ITEM_IV:
+                            Toast.makeText(getApplicationContext(), "ImageView", Toast.LENGTH_SHORT).show();
+
                             break;
                         case 6:
                             Toast.makeText(getApplicationContext(), "Toast 6", Toast.LENGTH_SHORT).show();

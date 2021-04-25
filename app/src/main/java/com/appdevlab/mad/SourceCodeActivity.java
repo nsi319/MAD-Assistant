@@ -1,11 +1,8 @@
 package com.appdevlab.mad;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,9 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.appdevlab.mad.code.JavaCodeFragment;
-import com.appdevlab.mad.code.XMLCodeFragment;
-import com.appdevlab.mad.component.button.ButtonFragment;
+import com.appdevlab.mad.code.CodeFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -25,7 +20,7 @@ import java.util.List;
 public class SourceCodeActivity extends AppCompatActivity {
 
     String javaCode, xmlCode;
-
+    String javaLocation, xmlLocation;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +51,7 @@ public class SourceCodeActivity extends AppCompatActivity {
                 "    @Nullable\n" +
                 "    @Override\n" +
                 "    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\n" +
-                "        View view =  inflater.inflate(R.layout.fragment_java_code,container,false);\n" +
+                "        View view =  inflater.inflate(R.layout.fragment_code,container,false);\n" +
                 "\n" +
                 "        if(this.getArguments() != null)\n" +
                 "            code = this.getArguments().getString(\"java\");\n" +
@@ -72,6 +67,9 @@ public class SourceCodeActivity extends AppCompatActivity {
 
         xmlCode = javaCode;
 
+        javaLocation = "java/MainActivity.java";
+        xmlLocation = "res/layout/activity_main.xml";
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         setupViewPager(viewPager);
 
@@ -83,18 +81,22 @@ public class SourceCodeActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        JavaCodeFragment javaCodeFragment = new JavaCodeFragment();
+        CodeFragment javaCodeFragment = new CodeFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("code","hello");
-        bundle.clear();
         bundle.putString("code",javaCode);
+        bundle.putString("location",javaLocation);
         javaCodeFragment.setArguments(bundle);
-        adapter.addFragment(javaCodeFragment, "JAVA");
 
-        XMLCodeFragment xmlCodeFragment = new XMLCodeFragment();
-        bundle.clear();
-        bundle.putString("code",xmlCode);
-        xmlCodeFragment.setArguments(bundle);
+        CodeFragment xmlCodeFragment = new CodeFragment();
+
+        Bundle bundle2 = new Bundle();
+        bundle2.clear();
+        bundle2.putString("code",xmlCode);
+        bundle2.putString("location",xmlLocation);
+        xmlCodeFragment.setArguments(bundle2);
+
+
+        adapter.addFragment(javaCodeFragment, "JAVA");
         adapter.addFragment(xmlCodeFragment, "XML");
 
         viewPager.setAdapter(adapter);
