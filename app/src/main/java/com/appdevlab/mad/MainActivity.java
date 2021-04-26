@@ -11,15 +11,7 @@ import androidx.cardview.widget.CardView;
 
 public class MainActivity extends AppCompatActivity {
 
-    GridLayout glHome;
-
-    final int GRID_ITEM_TV_ET = 0;
-    final int GRID_ITEM_BTN = 1;
-    final int GRID_ITEM_SEEKBAR = 2;
-    final int GRID_ITEM_PICKERS = 3;
-    final int GRID_ITEM_SPINNER = 4;
-    final int GRID_ITEM_IV = 5;
-
+    GridLayout gridLayout;
 
 
     @Override
@@ -27,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        glHome = (GridLayout) findViewById(R.id.main_gl_home);
+        gridLayout = (GridLayout) findViewById(R.id.gridLayout);
 
         // Set Event
-        setGridItemClickEvent(glHome);
+        setGridItemClickEvent(gridLayout);
     }
 
     private void setGridItemClickEvent(GridLayout glHome) {
@@ -44,35 +36,37 @@ public class MainActivity extends AppCompatActivity {
             cvCurrentItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Intent intent;
                     switch (index) {
-                        case GRID_ITEM_TV_ET:
+                        case 0:
                             Toast.makeText(getApplicationContext(), "TextView & EditText", Toast.LENGTH_SHORT).show();
-                            Intent iTextComponentAct = new Intent(getApplicationContext(), TextComponentActivity.class);
-                            startActivity(iTextComponentAct);
+                            intent = new Intent(getApplicationContext(), TextComponentActivity.class);
+                            startActivity(intent);
                             break;
-                        case GRID_ITEM_BTN:
+                        case 1:
                             Toast.makeText(getApplicationContext(), "Buttons", Toast.LENGTH_SHORT).show();
-                            Intent iButtonComponentAct = new Intent(getApplicationContext(), ButtonComponentActivity.class);
-                            startActivity(iButtonComponentAct);
+                            intent = new Intent(getApplicationContext(), ButtonComponentActivity.class);
+                            startActivity(intent);
                             break;
-                        case GRID_ITEM_SEEKBAR:
+                        case 2:
                             Toast.makeText(getApplicationContext(), "Seekbar", Toast.LENGTH_SHORT).show();
-                            Intent iSeekbarComponentAct = new Intent(getApplicationContext(), SeekbarComponentActivity.class);
-                            startActivity(iSeekbarComponentAct);
+                            intent = new Intent(getApplicationContext(), SeekbarComponentActivity.class);
+                            startActivity(intent);
                             break;
-                        case GRID_ITEM_PICKERS:
+                        case 3:
                             Toast.makeText(getApplicationContext(), "Pickers", Toast.LENGTH_SHORT).show();
-                            Intent iPickerComponentAct = new Intent(getApplicationContext(), PickerActivity.class);
-                            startActivity(iPickerComponentAct);
+                            intent = new Intent(getApplicationContext(), PickerActivity.class);
+                            startActivity(intent);
                             break;
-                        case GRID_ITEM_SPINNER:
+                        case 4:
                             Toast.makeText(getApplicationContext(), "Spinner", Toast.LENGTH_SHORT).show();
-                            Intent iSpinnerComponentAct = new Intent(getApplicationContext(), SpinnerActivity.class);
-                            startActivity(iSpinnerComponentAct);
+                            intent = new Intent(getApplicationContext(), SpinnerActivity.class);
+                            startActivity(intent);
                             break;
-                        case GRID_ITEM_IV:
-                            Toast.makeText(getApplicationContext(), "ImageView", Toast.LENGTH_SHORT).show();
-
+                        case 5:
+                            Toast.makeText(getApplicationContext(), "Menu", Toast.LENGTH_SHORT).show();
+                            intent = new Intent(getApplicationContext(), MenuActivity.class);
+                            startActivity(intent);
                             break;
                         case 6:
                             Toast.makeText(getApplicationContext(), "Toast 6", Toast.LENGTH_SHORT).show();

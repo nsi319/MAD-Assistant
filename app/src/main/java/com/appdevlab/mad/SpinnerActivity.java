@@ -36,11 +36,11 @@ public class SpinnerActivity extends AppCompatActivity implements AdapterView.On
         places.add("CSE Department");
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, places);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, places);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinnerDropdown.setAdapter(dataAdapter);
-        spinnerDialog.setAdapter(dataAdapter);
+        spinnerDropdown.setAdapter(arrayAdapter);
+        spinnerDialog.setAdapter(arrayAdapter);
 
     }
 
