@@ -1,5 +1,7 @@
 package com.appdevlab.mad.code;
 
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -15,11 +17,14 @@ import androidx.fragment.app.Fragment;
 
 import com.appdevlab.mad.R;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 import java.util.List;
 
 import br.tiagohm.codeview.Theme;
 import io.github.kbiakov.codeview.CodeView;
+import io.github.kbiakov.codeview.OnCodeLineClickListener;
 import io.github.kbiakov.codeview.highlight.ColorTheme;
 
 
@@ -50,6 +55,18 @@ public class CodeFragment extends Fragment {
 
         location = "File Location: " + location;
         ((TextView) view.findViewById(R.id.tv_file_location)).setText(location);
+
+        TextView copyCode = (TextView) view.findViewById(R.id.tv_copy_code);
+
+        final String copyCodeText = code;
+        copyCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboardManager = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                clipboardManager.setText(copyCodeText);
+                Toast.makeText(view.getContext(), "Code copied to clipboard", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return  view;
     }
