@@ -69,8 +69,9 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                             break;
                         case 6:
-                            Toast.makeText(getApplicationContext(), "Toast 6", Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(getApplicationContext(), "Material Design", Toast.LENGTH_SHORT).show();
+                            intent = new Intent(getApplicationContext(), MaterialActivity.class);
+                            startActivity(intent);
                             break;
                         case 7:
                             Toast.makeText(getApplicationContext(), "Toast 7", Toast.LENGTH_SHORT).show();

@@ -22,6 +22,7 @@
         <activity android:name=".PickerActivity" android:label="Pickers" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
         <activity android:name=".SpinnerActivity" android:label="Spinners" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
         <activity android:name=".MenuActivity" android:label="Menu" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
+        <activity android:name=".MaterialActivity" android:label="Material Design" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
         <activity android:name=".SourceCodeActivity"  android:label="Source Code" android:theme="@style/ModuleTheme"/>
     </application>
 </manifest>

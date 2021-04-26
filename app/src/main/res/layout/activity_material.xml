@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MaterialActivity"
+    tools:ignore="MissingPrefix">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+    <TextView
+        style="@style/module_text_info"
+        android:text="Floating Action Button (FAB)" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/fab_margin"
+        android:elevation="10dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:src="@drawable/ic_play_arrow_black_24dp" />
+
+    <TextView
+        style="@style/module_text_info"
+        android:text="CardView" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/edit_profile_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:theme="@style/Theme.MaterialComponents.DayNight"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@android:color/white"
+        app:state_dragged="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            >
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/image"
+                android:src="@drawable/naren"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:text="Naren Sairam"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/image"
+                android:layout_alignParentTop="true"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/position"
+                android:text="App Developer"
+                android:textColor="@android:color/black"
+                android:layout_toRightOf="@+id/image"
+                android:layout_below="@+id/name"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dept"
+                android:text="CSE, NIT Trichy"
+                android:textColor="@android:color/darker_gray"
+                android:layout_toRightOf="@+id/image"
+                android:layout_below="@+id/position"
+                android:textSize="14sp"
+                />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        style="@style/module_text_info"
+        android:text="Bottom Sheet" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="10dp"
+        android:theme="@style/Theme.MaterialComponents.DayNight"
+        android:text="OPEN BOTTOM SHEET"
+        />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:padding="10dp"
+        android:clipToPadding="true"
+        android:elevation="10dp"
+        app:behavior_hideable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/logo"
+            android:src="@drawable/nit"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/college"
+            android:text="National Institute of Technology"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_alignParentTop="true"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/place"
+            android:text="Tiruchirapalli"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_below="@+id/college"
+            android:textSize="14sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/close_bottom_sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/place"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:elevation="10dp"
+            android:text="CLOSE"
+            android:theme="@style/Theme.MaterialComponents.DayNight" />
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+

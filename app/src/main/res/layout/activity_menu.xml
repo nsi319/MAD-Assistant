@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SpinnerActivity">
+    tools:context=".MenuActivity">
 
     <TextView
         style="@style/module_text_info"

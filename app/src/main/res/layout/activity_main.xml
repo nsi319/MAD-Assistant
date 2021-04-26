@@ -233,12 +233,12 @@
                         android:layout_height="64dp"
                         android:layout_gravity="center_horizontal"
                         android:padding="12dp"
-                        android:src="@drawable/ic_warning_24dp"
+                        android:src="@drawable/ic_android_black_24dp"
                         android:tint="#BDBDBD"/>
 
                     <TextView
                         style="@style/main_grid_item_text"
-                        android:text="Placeholder"/>
+                        android:text="Material Design"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -265,7 +265,7 @@
 
                     <TextView
                         style="@style/main_grid_item_text"
-                        android:text="Placeholder"/>
+                        android:text="SQLite Database"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
