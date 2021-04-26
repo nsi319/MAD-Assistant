@@ -65,7 +65,33 @@ public class SourceCodeActivity extends AppCompatActivity {
                 "    }\n" +
                 "}\n";
 
-        xmlCode = javaCode;
+        xmlCode = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                "\n" +
+                "<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
+                "    android:layout_width=\"match_parent\"\n" +
+                "    android:layout_height=\"match_parent\"\n" +
+                "    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n" +
+                "    android:orientation=\"vertical\"\n" +
+                "    android:backgroundTint=\"@android:color/white\"\n" +
+                "    android:padding=\"10dp\">\n" +
+                "\n" +
+                "    <TextView\n" +
+                "        android:id=\"@+id/tv_file_location\"\n" +
+                "        android:layout_width=\"match_parent\"\n" +
+                "        android:layout_height=\"wrap_content\"\n" +
+                "        android:text=\"File Location: \"\n" +
+                "        android:textColor=\"@android:color/black\"\n" +
+                "        android:textStyle=\"bold\"\n" +
+                "        android:paddingVertical=\"5dp\" \n" +
+                "        />\n" +
+                "\n" +
+                "    <io.github.kbiakov.codeview.CodeView\n" +
+                "        android:id=\"@+id/tv_code\"\n" +
+                "        android:layout_width=\"wrap_content\"\n" +
+                "        android:layout_height=\"wrap_content\"\n" +
+                "        />\n" +
+                "    \n" +
+                "</LinearLayout>";
 
         javaLocation = "java/MainActivity.java";
         xmlLocation = "res/layout/activity_main.xml";
