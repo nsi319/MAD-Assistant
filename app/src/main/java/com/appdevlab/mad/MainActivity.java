@@ -67,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case GRID_ITEM_SPINNER:
                             Toast.makeText(getApplicationContext(), "Spinner", Toast.LENGTH_SHORT).show();
-
+                            Intent iSpinnerComponentAct = new Intent(getApplicationContext(), SpinnerActivity.class);
+                            startActivity(iSpinnerComponentAct);
                             break;
                         case GRID_ITEM_IV:
                             Toast.makeText(getApplicationContext(), "ImageView", Toast.LENGTH_SHORT).show();

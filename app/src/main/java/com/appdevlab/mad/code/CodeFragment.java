@@ -53,7 +53,6 @@ public class CodeFragment extends Fragment {
         codeView.setCodeContent(code);
         codeView.setColorTheme(ColorTheme.MONOKAI);
 
-        location = "File Location: " + location;
         ((TextView) view.findViewById(R.id.tv_file_location)).setText(location);
 
         TextView copyCode = (TextView) view.findViewById(R.id.tv_copy_code);
