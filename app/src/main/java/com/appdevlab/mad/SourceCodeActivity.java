@@ -27,74 +27,11 @@ public class SourceCodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_source_code);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        javaCode = "package com.appdevlab.mad.code;\n" +
-                "\n" +
-                "import android.os.Bundle;\n" +
-                "import android.view.LayoutInflater;\n" +
-                "import android.view.View;\n" +
-                "import android.view.ViewGroup;\n" +
-                "import android.widget.TextView;\n" +
-                "import android.widget.Toast;\n" +
-                "\n" +
-                "import androidx.annotation.NonNull;\n" +
-                "import androidx.annotation.Nullable;\n" +
-                "import androidx.fragment.app.Fragment;\n" +
-                "\n" +
-                "import com.appdevlab.mad.R;\n" +
-                "\n" +
-                "public class JavaCodeFragment extends Fragment {\n" +
-                "    String code;\n" +
-                "\n" +
-                "    public  JavaCodeFragment () {\n" +
-                "    }\n" +
-                "\n" +
-                "    @Nullable\n" +
-                "    @Override\n" +
-                "    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\n" +
-                "        View view =  inflater.inflate(R.layout.fragment_code,container,false);\n" +
-                "\n" +
-                "        if(this.getArguments() != null)\n" +
-                "            code = this.getArguments().getString(\"java\");\n" +
-                "        else\n" +
-                "            code = \"NO CODE SNIPPET AVAILABLE\";\n" +
-                "\n" +
-                "\n" +
-                "        ((TextView)view.findViewById(R.id.tv_java_code)).setText(code);\n" +
-                "\n" +
-                "        return  view;\n" +
-                "    }\n" +
-                "}\n";
 
-        xmlCode = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-                "\n" +
-                "<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
-                "    android:layout_width=\"match_parent\"\n" +
-                "    android:layout_height=\"match_parent\"\n" +
-                "    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n" +
-                "    android:orientation=\"vertical\"\n" +
-                "    android:backgroundTint=\"@android:color/white\"\n" +
-                "    android:padding=\"10dp\">\n" +
-                "\n" +
-                "    <TextView\n" +
-                "        android:id=\"@+id/tv_file_location\"\n" +
-                "        android:layout_width=\"match_parent\"\n" +
-                "        android:layout_height=\"wrap_content\"\n" +
-                "        android:text=\"File Location: \"\n" +
-                "        android:textColor=\"@android:color/black\"\n" +
-                "        android:textStyle=\"bold\"\n" +
-                "        android:paddingVertical=\"5dp\" \n" +
-                "        />\n" +
-                "\n" +
-                "    <io.github.kbiakov.codeview.CodeView\n" +
-                "        android:id=\"@+id/tv_code\"\n" +
-                "        android:layout_width=\"wrap_content\"\n" +
-                "        android:layout_height=\"wrap_content\"\n" +
-                "        />\n" +
-                "    \n" +
-                "</LinearLayout>";
-
-        javaLocation = "java/MainActivity.java";
-        xmlLocation = "res/layout/activity_main.xml";
+        javaCode = getIntent().getStringExtra("java");
+        xmlCode = getIntent().getStringExtra("xml");
+        javaLocation = getIntent().getStringExtra("javaLocation");
+        xmlLocation = getIntent().getStringExtra("xmlLocation");
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         setupViewPager(viewPager);
@@ -168,3 +105,4 @@ public class SourceCodeActivity extends AppCompatActivity {
         }
     }
 }
+

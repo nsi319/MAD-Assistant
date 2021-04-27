@@ -20,183 +20,147 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-
-        <TextView
-            style="@style/module_text_info"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Plain ol' TextView"
-            android:textColor="@android:color/black" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Plain Text EditText" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:hint="Name"
-            android:drawableStart="@drawable/ic_person_grey_24dp"
-            android:drawablePadding="8dp"
-            />
+            <TextView
+                style="@style/module_text_info"
+                android:text="TextView" />
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Password EditText" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="THIS IS A TEXTVIEW"
+                android:textSize="15sp"
+                android:textColor="@android:color/black" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:text="password"
-            android:hint="Password"
-            android:drawableStart="@drawable/ic_lock_grey_24dp"
-            android:drawableTintMode="multiply"
-            android:drawablePadding="8dp"/>
+            <TextView
+                style="@style/module_text_info"
+                android:text="EditText (Plain)" />
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Password (Numeric) EditText" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Full Name"
+                android:drawableStart="@drawable/ic_person_grey_24dp"
+                android:drawablePadding="8dp"
+                />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberPassword"
-            android:text="123456"
-            android:hint="123456"
-            android:drawableStart="@drawable/ic_lock_grey_24dp"
-            android:drawableTintMode="screen"
-            android:drawablePadding="8dp"/>
+            <TextView
+                style="@style/module_text_info"
+                android:text="EditText (Multiline)" />
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Email EditText" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:text="Hey!!\nI am Naren Sairam from Chennai.\nCSE, NIT Trichy '22"
+                android:drawableStart="@drawable/ic_short_text_grey_24dp"
+                android:drawablePadding="8dp"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="someone@example.com"
-            android:hint="someone@example.com"
-            android:drawableStart="@drawable/ic_email_grey_24dp"
-            android:drawablePadding="8dp"/>
+            <TextView
+                style="@style/module_text_info"
+                android:text="EditText (Password)" />
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Phone EditText" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="Webmail Password"
+                android:drawableStart="@drawable/ic_lock_grey_24dp"
+                android:drawableTintMode="multiply"
+                android:drawablePadding="8dp"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="phone"
-            android:text="08112345678"
-            android:drawableStart="@drawable/ic_phone_grey_24dp"
-            android:drawablePadding="8dp"/>
+            <TextView
+                style="@style/module_text_info"
+                android:text="EditText (Number)" />
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Postal Address EditText" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:text="1800"
+                android:drawableStart="@drawable/ic_looks_one_grey_24dp"
+                android:drawablePadding="8dp"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPostalAddress"
-            android:drawableStart="@drawable/ic_home_grey_24dp"
-            android:drawablePadding="8dp"/>
+            <TextView
+                style="@style/module_text_info"
+                android:text="EditText (Number Signed)" />
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Multiline EditText" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned"
+                android:text="-18000"
+                android:drawableStart="@drawable/ic_plus_one_grey_24dp"
+                android:drawablePadding="8dp"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:text="First Line\nSecond Line"
-            android:drawableStart="@drawable/ic_short_text_grey_24dp"
-            android:drawablePadding="8dp"/>
+            <TextView
+                style="@style/module_text_info"
+                android:text="EditText (Number Decimal)" />
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Time EditText" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="1800.23"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="time"
-            android:drawableStart="@drawable/ic_access_time_grey_24dp"
-            android:drawablePadding="8dp"/>
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Date EditText" />
+            <TextView
+                style="@style/module_text_info"
+                android:text="EditText (Email)" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:drawableStart="@drawable/ic_date_range_grey_24dp"
-            android:drawablePadding="8dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:text="106118062@nitt.edu"
+                android:hint="Email address"
+                android:drawableStart="@drawable/ic_email_grey_24dp"
+                android:drawablePadding="8dp"/>
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Number EditText" />
+            <TextView
+                style="@style/module_text_info"
+                android:text="EditText (Phone Number)" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:text="123456789"
-            android:drawableStart="@drawable/ic_looks_one_grey_24dp"
-            android:drawablePadding="8dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:hint="Phone Number"
+                android:drawableStart="@drawable/ic_phone_grey_24dp"
+                android:drawablePadding="8dp"/>
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Number (Signed) EditText" />
+            <TextView
+                style="@style/module_text_info"
+                android:text="EditText (Date)" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberSigned"
-            android:text="-123"
-            android:drawableStart="@drawable/ic_plus_one_grey_24dp"
-            android:drawablePadding="8dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="date"
+                android:drawableStart="@drawable/ic_date_range_grey_24dp"
+                android:drawablePadding="8dp"/>
 
-        <TextView
-            style="@style/module_text_info"
-            android:text="Number (Decimal)" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:text="123.456"/>
 
-    </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
