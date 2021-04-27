@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Default" />
+        android:text="Default Button" />
 
     <Button
         android:id="@+id/btn_borderless"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Borderless" />
+        android:text="Borderless Button" />
 
     <Button
         android:id="@+id/btn_borderless_colored"
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Borderless Colored" />
+        android:text="Borderless Colored Button" />
 
     <Button
         android:id="@+id/btn_bar_alertdialog"
@@ -46,14 +46,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Colored" />
+        android:text="Colored Button" />
 
-    <Button
-        android:id="@+id/btn_small"
-        style="@style/Widget.AppCompat.Button.Small"
+
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/btn_material"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:theme="@style/Theme.MaterialComponents.DayNight"
         android:layout_marginBottom="8dp"
-        android:text="Small" />
+        android:text="Material Button" />
+
 
 </LinearLayout>

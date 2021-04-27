@@ -33,10 +33,10 @@ public class CheckboxFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
-                    Toast.makeText(view.getContext(), "Check Box checked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "Your age is above 18", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(view.getContext(), "Check Box unchecked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "Your age is below 18", Toast.LENGTH_SHORT).show();
                 }
             }
         });

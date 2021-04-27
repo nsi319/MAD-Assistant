@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -32,22 +33,12 @@ public class RadioButtonFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
         radioGroup = getActivity().findViewById(R.id.radio_group);
         tvRadioSelected = getActivity().findViewById(R.id.radio_selected_text);
 
         radioGroup.setOnCheckedChangeListener((rg, i) -> {
-            switch (i){
-                case R.id.rb_1:
-                    tvRadioSelected.setText("Selected : Option 1");
-                    break;
-                case R.id.rb_2:
-                    tvRadioSelected.setText("Selected : Option 2");
-                    break;
-                case R.id.rb_3:
-                    tvRadioSelected.setText("Selected : Option 3");
-                    break;
-            }
+            String text = ((RadioButton)getActivity().findViewById(i)).getText().toString();
+            tvRadioSelected.setText("Selected: " + text );
         });
 
 

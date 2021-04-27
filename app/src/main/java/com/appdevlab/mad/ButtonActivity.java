@@ -1,8 +1,9 @@
 package com.appdevlab.mad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,9 +13,11 @@ import com.appdevlab.mad.component.button.CheckboxFragment;
 import com.appdevlab.mad.component.button.ImageButtonFragment;
 import com.appdevlab.mad.component.button.RadioButtonFragment;
 import com.appdevlab.mad.component.button.ToggleSwitchButtonFragment;
+import com.appdevlab.mad.model.Code;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
-public class ButtonComponentActivity extends AppCompatActivity {
+public class ButtonActivity extends AppCompatActivity {
 
     FragmentTransaction ft;
     ButtonFragment frgButton;
@@ -23,13 +26,35 @@ public class ButtonComponentActivity extends AppCompatActivity {
     CheckboxFragment frgCheckbox;
     RadioButtonFragment frgRadioButton;
 
+    FloatingActionButton codeFab;
+    String javaCode, xmlCode, javaLocation,xmlLocation;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_button_component);
+        setContentView(R.layout.activity_button);
 
-        Log.i("ButtonComponentActivity", "onCreate: [x]");
+        Code code = new Code();
+        javaCode  = code.getTextJava();
+        xmlCode = code.getTextXml();
+        javaLocation = code.getTextJavaLocation();
+        xmlLocation = code.getTextXmlLocation();
 
+
+        codeFab = findViewById(R.id.code);
+
+        codeFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ButtonActivity.this, SourceCodeActivity.class);
+                intent.putExtra("java",javaCode);
+                intent.putExtra("xml",xmlCode);
+                intent.putExtra("javaLocation",javaLocation);
+                intent.putExtra("xmlLocation",xmlLocation);
+                startActivity(intent);
+            }
+        });
 
 
         // Attach Button Fragment
@@ -57,7 +82,6 @@ public class ButtonComponentActivity extends AppCompatActivity {
         ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.radio_button_frg_container, frgRadioButton).commit();
 
-        // Attach more fragment
 
     }
 

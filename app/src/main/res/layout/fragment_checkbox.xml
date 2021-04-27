@@ -13,6 +13,6 @@
         android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="Age >= 18" />
 
 </LinearLayout>

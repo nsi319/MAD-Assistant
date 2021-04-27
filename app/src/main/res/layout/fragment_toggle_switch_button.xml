@@ -8,14 +8,21 @@
 
     <TextView
         style="@style/module_text_info"
-        android:text="Toggle &amp; Switch Button" />
+        android:text="Toggle Button" />
 
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="ToggleButton" />
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:textOn="BUTTON IS ON"
+        android:textOff="BUTTON IS OFF"
+        />
+
+    <TextView
+        style="@style/module_text_info"
+        android:text="Switch" />
 
     <Switch
         android:id="@+id/switch1"
@@ -31,10 +38,9 @@
         android:layout_marginBottom="8dp"
         android:showText="true"
         android:splitTrack="false"
-        android:switchMinWidth="48dp"
-        android:text="Switch"
-        android:textOff="O"
-        android:textOn="I"
+        android:text="Switch (Y/N)"
+        android:textOff="N"
+        android:textOn="Y"
         tools:checked="false" />
 
 </LinearLayout>

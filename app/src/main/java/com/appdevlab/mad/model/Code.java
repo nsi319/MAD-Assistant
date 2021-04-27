@@ -142,6 +142,16 @@ public class Code {
     private String textJavaLocation = "java/MainActivity.java";
     private String textXmlLocation = "res/layout/activity_main.xml";
 
+
+
+
+    private String buttonXml ="";
+
+    private String buttonJava = "";
+
+    private String buttonJavaLocation = "java/MainActivity.java";
+    private String buttonXmlLocation = "res/layout/activity_main.xml";
+
     public String getTextXml() {
         return textXml;
     }

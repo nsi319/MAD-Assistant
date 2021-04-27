@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SeekbarComponentActivity extends AppCompatActivity {
+public class SeekbarActivity extends AppCompatActivity {
 
     SeekBar seekBar1, seekBar2;
     ProgressBar progressBar1, progressBar2;

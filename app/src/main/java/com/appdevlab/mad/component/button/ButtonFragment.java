@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class ButtonFragment extends Fragment {
 
-    Button btnDefault, btnBorderless, btnBorderlessColored, btnColored, btnSmall, btnBarAlertDialog;
+    Button btnDefault, btnBorderless, btnBorderlessColored, btnColored, btnMaterial, btnBarAlertDialog;
 
     public ButtonFragment() {
         // Required empty public constructor
@@ -37,18 +37,17 @@ public class ButtonFragment extends Fragment {
         btnBorderless = view.findViewById(R.id.btn_borderless);
         btnBorderlessColored = view.findViewById(R.id.btn_borderless_colored);
         btnColored = view.findViewById(R.id.btn_colored);
-        btnSmall = view.findViewById(R.id.btn_small);
+        btnMaterial = view.findViewById(R.id.btn_material);
         btnBarAlertDialog = view.findViewById(R.id.btn_bar_alertdialog);
 
 
-        // Set OnClickListener, Show Toast
 
         ArrayList<Button> buttons = new ArrayList<Button>();
         buttons.add(btnDefault);
         buttons.add(btnBorderless);
         buttons.add(btnBorderlessColored);
         buttons.add(btnColored);
-        buttons.add(btnSmall);
+        buttons.add(btnMaterial);
         buttons.add(btnBarAlertDialog);
 
         for(Button b : buttons) {

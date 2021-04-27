@@ -13,7 +13,7 @@
         android:id="@+id/radio_selected_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Selected : none"
+        android:text="Selected : None"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textStyle="bold" />
@@ -28,21 +28,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Option 1" />
+            android:text="Android Native (Java)" />
 
         <RadioButton
             android:id="@+id/rb_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Option 2" />
+            android:text="Flutter (Dart)" />
 
         <RadioButton
             android:id="@+id/rb_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Option 3" />
+            android:text="React Native (JS)" />
     </RadioGroup>
 
 </LinearLayout>

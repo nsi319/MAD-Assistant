@@ -39,17 +39,17 @@ public class MainActivity extends AppCompatActivity {
                     switch (index) {
                         case 0:
                             Toast.makeText(getApplicationContext(), "TextView & EditText", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), TextComponentActivity.class);
+                            intent = new Intent(getApplicationContext(), TextActivity.class);
                             startActivity(intent);
                             break;
                         case 1:
                             Toast.makeText(getApplicationContext(), "Buttons", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), ButtonComponentActivity.class);
+                            intent = new Intent(getApplicationContext(), ButtonActivity.class);
                             startActivity(intent);
                             break;
                         case 2:
                             Toast.makeText(getApplicationContext(), "Seekbar", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), SeekbarComponentActivity.class);
+                            intent = new Intent(getApplicationContext(), SeekbarActivity.class);
                             startActivity(intent);
                             break;
                         case 3:

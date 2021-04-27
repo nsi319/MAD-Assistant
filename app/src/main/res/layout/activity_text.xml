@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".TextComponentActivity">
+    tools:context=".TextActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/code"

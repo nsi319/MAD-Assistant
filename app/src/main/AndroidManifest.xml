@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TextComponentActivity" android:label="TextView &amp; EditText" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
-        <activity android:name=".ButtonComponentActivity" android:label="Buttons" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
-        <activity android:name=".SeekbarComponentActivity" android:label="Seekbar &amp; Progressbar" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
+        <activity android:name=".TextActivity" android:label="TextView &amp; EditText" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
+        <activity android:name=".ButtonActivity" android:label="Buttons" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
+        <activity android:name=".SeekbarActivity" android:label="Seekbar &amp; Progressbar" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
         <activity android:name=".PickerActivity" android:label="Pickers" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
         <activity android:name=".SpinnerActivity" android:label="Spinners" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>
         <activity android:name=".MenuActivity" android:label="Menu" android:parentActivityName=".MainActivity" android:theme="@style/ModuleTheme"/>

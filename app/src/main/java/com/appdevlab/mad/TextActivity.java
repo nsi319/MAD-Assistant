@@ -2,18 +2,14 @@ package com.appdevlab.mad;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import java.util.regex.Pattern;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.appdevlab.mad.model.Code;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 
-public class TextComponentActivity extends AppCompatActivity {
+public class TextActivity extends AppCompatActivity {
 
     FloatingActionButton codeFab;
 
@@ -22,7 +18,7 @@ public class TextComponentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_text_component);
+        setContentView(R.layout.activity_text);
         Code code = new Code();
 
         javaCode  = code.getTextJava();
@@ -36,7 +32,7 @@ public class TextComponentActivity extends AppCompatActivity {
         codeFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TextComponentActivity.this, SourceCodeActivity.class);
+                Intent intent = new Intent(TextActivity.this, SourceCodeActivity.class);
                 intent.putExtra("java",javaCode);
                 intent.putExtra("xml",xmlCode);
                 intent.putExtra("javaLocation",javaLocation);
