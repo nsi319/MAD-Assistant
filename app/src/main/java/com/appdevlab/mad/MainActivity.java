@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case 7:
                             Toast.makeText(getApplicationContext(), "SQLite Database", Toast.LENGTH_SHORT).show();
-
+                            intent = new Intent(getApplicationContext(), SQLiteActivity.class);
+                            startActivity(intent);
                             break;
 
                     }
