@@ -69,7 +69,7 @@
                         android:layout_gravity="center_horizontal"
                         android:padding="12dp"
                         android:src="@drawable/ic_text_fields_24dp"
-                        android:tint="#BDBDBD" />
+                        android:tint="@color/colorPrimaryDark" />
 
                     <TextView
                         style="@style/main_grid_item_text"
@@ -96,7 +96,7 @@
                         android:layout_gravity="center_horizontal"
                         android:padding="12dp"
                         android:src="@drawable/ic_touch_app_24dp"
-                        android:tint="#BDBDBD"/>
+                        android:tint="@android:color/holo_green_dark"/>
 
                     <TextView
                         style="@style/main_grid_item_text"
@@ -124,7 +124,7 @@
                         android:layout_gravity="center_horizontal"
                         android:padding="12dp"
                         android:src="@drawable/ic_room_24dp"
-                        android:tint="#BDBDBD"/>
+                        android:tint="@android:color/holo_red_dark"/>
 
                     <TextView
                         style="@style/main_grid_item_text"
@@ -151,7 +151,7 @@
                         android:layout_gravity="center_horizontal"
                         android:padding="12dp"
                         android:src="@drawable/ic_date_range_24dp"
-                        android:tint="#BDBDBD"/>
+                        android:tint="@android:color/holo_blue_dark"/>
 
                     <TextView
                         style="@style/main_grid_item_text"
@@ -179,7 +179,7 @@
                         android:layout_gravity="center_horizontal"
                         android:padding="12dp"
                         android:src="@drawable/ic_keyboard_arrow_down_24dp"
-                        android:tint="#BDBDBD"/>
+                        android:tint="@color/colorPrimaryDark"/>
 
                     <TextView
                         style="@style/main_grid_item_text"
@@ -206,7 +206,7 @@
                         android:layout_gravity="center_horizontal"
                         android:padding="12dp"
                         android:src="@drawable/ic_menu_black_24dp"
-                        android:tint="#BDBDBD"/>
+                        android:tint="@android:color/holo_orange_light"/>
 
                     <TextView
                         style="@style/main_grid_item_text"
@@ -234,7 +234,7 @@
                         android:layout_gravity="center_horizontal"
                         android:padding="12dp"
                         android:src="@drawable/ic_android_black_24dp"
-                        android:tint="#BDBDBD"/>
+                        android:tint="@android:color/holo_purple"/>
 
                     <TextView
                         style="@style/main_grid_item_text"
@@ -261,7 +261,7 @@
                         android:layout_gravity="center_horizontal"
                         android:padding="12dp"
                         android:src="@drawable/ic_storage_black_24dp"
-                        android:tint="#BDBDBD"/>
+                        android:tint="@android:color/widget_edittext_dark"/>
 
                     <TextView
                         style="@style/main_grid_item_text"
