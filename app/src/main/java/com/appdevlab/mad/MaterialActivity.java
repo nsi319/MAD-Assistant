@@ -50,8 +50,10 @@ public class MaterialActivity extends AppCompatActivity {
         openBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED)
+                if(bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                    Toast.makeText(getApplicationContext(),"Opening Bottom Sheet",Toast.LENGTH_SHORT).show();
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                }
                 else
                     Toast.makeText(getApplicationContext(),"Bottom Sheet is already open",Toast.LENGTH_SHORT).show();
             }
@@ -60,6 +62,7 @@ public class MaterialActivity extends AppCompatActivity {
         closeBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Closing Bottom Sheet",Toast.LENGTH_SHORT).show();
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });
