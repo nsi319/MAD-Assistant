@@ -17,14 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.appdevlab.mad.R;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Arrays;
-import java.util.List;
-
-import br.tiagohm.codeview.Theme;
 import io.github.kbiakov.codeview.CodeView;
-import io.github.kbiakov.codeview.OnCodeLineClickListener;
 import io.github.kbiakov.codeview.highlight.ColorTheme;
 
 
@@ -53,7 +46,7 @@ public class CodeFragment extends Fragment {
         codeView.setCodeContent(code);
         codeView.setColorTheme(ColorTheme.MONOKAI);
 
-        ((TextView) view.findViewById(R.id.tv_file_location)).setText(location);
+        ((TextView) view.findViewById(R.id.tv_file_location)).setText("Location: " + location);
 
         TextView copyCode = (TextView) view.findViewById(R.id.tv_copy_code);
 

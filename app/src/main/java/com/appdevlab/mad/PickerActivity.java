@@ -2,20 +2,19 @@ package com.appdevlab.mad;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.appdevlab.mad.model.Code;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
 
@@ -23,13 +22,37 @@ public class PickerActivity extends AppCompatActivity {
 
     Button btnDatePicker, btnTimePicker;
     NumberPicker numberPicker;
-
     int mDay, mMonth, mYear;
+
+    FloatingActionButton codeFab;
+    String javaCode, xmlCode, javaLocation,xmlLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picker);
+
+        Code code = new Code();
+        javaCode  = code.getPickerJava();
+        xmlCode = code.getPickerXml();
+        javaLocation = code.getPickerJavaLocation();
+        xmlLocation = code.getPickerXmlLocation();
+
+
+        codeFab = findViewById(R.id.code);
+
+        codeFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PickerActivity.this, SourceCodeActivity.class);
+                intent.putExtra("java",javaCode);
+                intent.putExtra("xml",xmlCode);
+                intent.putExtra("javaLocation",javaLocation);
+                intent.putExtra("xmlLocation",xmlLocation);
+                startActivity(intent);
+            }
+        });
+
 
         btnDatePicker = findViewById(R.id.btn_date_picker);
         btnTimePicker = findViewById(R.id.btn_time_picker);
@@ -86,7 +109,7 @@ public class PickerActivity extends AppCompatActivity {
             };
         });
 
-        //Number Picker
+        // Number Picker
         numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {

@@ -344,21 +344,18 @@ public class Code {
 
 
 
-    private String seekXml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-            "<androidx.coordinatorlayout.widget.CoordinatorLayout\n" +
+    private String seekXml = "<LinearLayout\n" +
             "\txmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
             "\txmlns:tools=\"http://schemas.android.com/tools\"\n" +
             "    android:layout_width=\"match_parent\"\n" +
             "    android:layout_height=\"match_parent\"\n" +
             "    android:fitsSystemWindows=\"true\"\n" +
-            "    tools:context=\".MainActivity\">\n" +
-            "\t<LinearLayout\n" +
-            "    android:layout_width=\"match_parent\"\n" +
-            "    android:layout_height=\"match_parent\"\n" +
             "    android:orientation=\"vertical\"\n" +
             "    android:padding=\"16dp\"\n" +
+            "    tools:context=\".MainActivity\"\n" +
             "    >\n" +
-            "\t\t<SeekBar\n" +
+            "\t<!--Seekbar-->\n" +
+            "\t<SeekBar\n" +
             "        android:id=\"@+id/seekBar1\"\n" +
             "        android:layout_width=\"match_parent\"\n" +
             "        android:layout_height=\"wrap_content\"\n" +
@@ -366,7 +363,8 @@ public class Code {
             "        android:layout_marginBottom=\"10dp\"\n" +
             "        android:progress=\"45\"\n" +
             "        />\n" +
-            "\t\t<SeekBar\n" +
+            "\t<!--Seekbar (Discrete)-->\n" +
+            "\t<SeekBar\n" +
             "        android:id=\"@+id/seekBar2\"\n" +
             "        style=\"@style/Widget.AppCompat.SeekBar.Discrete\"\n" +
             "        android:layout_width=\"match_parent\"\n" +
@@ -375,7 +373,8 @@ public class Code {
             "        android:layout_marginBottom=\"10dp\"\n" +
             "        android:max=\"10\"\n" +
             "        android:progress=\"6\" />\n" +
-            "\t\t<ProgressBar\n" +
+            "\t<!--Progress Bar (Horizontal)-->\n" +
+            "\t<ProgressBar\n" +
             "        android:id=\"@+id/progressBar1\"\n" +
             "        style=\"@android:style/Widget.DeviceDefault.ProgressBar.Horizontal\"\n" +
             "        android:indeterminateOnly=\"true\"\n" +
@@ -384,7 +383,8 @@ public class Code {
             "        android:layout_marginTop=\"8dp\"\n" +
             "        android:layout_marginBottom=\"10dp\"\n" +
             "        />\n" +
-            "\t\t<ProgressBar\n" +
+            "\t<!--Progress Bar (Circular)-->\n" +
+            "\t<ProgressBar\n" +
             "        android:id=\"@+id/progressBar2\"\n" +
             "        style=\"@style/Widget.AppCompat.ProgressBar\"\n" +
             "        android:layout_width=\"match_parent\"\n" +
@@ -392,8 +392,7 @@ public class Code {
             "        android:layout_marginTop=\"8dp\"\n" +
             "        android:layout_marginBottom=\"10dp\"\n" +
             "        />\n" +
-            "\t</LinearLayout>\n" +
-            "</androidx.coordinatorlayout.widget.CoordinatorLayout>\n";
+            "</LinearLayout>";
 
     private String seekJava = "package com.appdevlab.mad;\n" +
             "\n" +
@@ -460,6 +459,172 @@ public class Code {
     private String seekXmlLocation = "res/layout/activity_main.xml";
 
 
+
+
+    private String pickerXml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+            "<LinearLayout\n" +
+            "\txmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
+            "\txmlns:app=\"http://schemas.android.com/apk/res-auto\"\n" +
+            "\txmlns:tools=\"http://schemas.android.com/tools\"\n" +
+            "    android:layout_width=\"match_parent\"\n" +
+            "    android:layout_height=\"match_parent\"\n" +
+            "    android:orientation=\"vertical\"\n" +
+            "    android:layout_margin=\"16dp\"\n" +
+            "    tools:context=\".MainActivity\">\n" +
+            "\n" +
+            "  <!--Date Picker -->\n" +
+            "\n" +
+            "\t<androidx.cardview.widget.CardView\n" +
+            "        android:layout_width=\"wrap_content\"\n" +
+            "        android:layout_height=\"wrap_content\"\n" +
+            "        android:layout_gravity=\"center\"\n" +
+            "        android:foregroundGravity=\"center\"\n" +
+            "        app:cardBackgroundColor=\"@android:color/holo_blue_light\"\n" +
+            "        app:cardCornerRadius=\"10dp\">\n" +
+            "\t\t<Button\n" +
+            "            android:id=\"@+id/btn_date_picker\"\n" +
+            "            android:layout_width=\"wrap_content\"\n" +
+            "            android:layout_height=\"wrap_content\"\n" +
+            "            android:layout_gravity=\"center\"\n" +
+            "            android:paddingLeft=\"8dp\"\n" +
+            "            android:paddingRight=\"8dp\"\n" +
+            "            android:textAllCaps=\"false\"\n" +
+            "            android:drawablePadding=\"5dp\"\n" +
+            "            android:textSize=\"16sp\"\n" +
+            "            android:background=\"@android:color/holo_blue_light\"\n" +
+            "            android:textColor=\"@android:color/black\"\n" +
+            "            android:text=\"No date chosen\" />\n" +
+            "\t</androidx.cardview.widget.CardView>\n" +
+            "\n" +
+            "\n" +
+            "  <!--Time Picker -->\n" +
+            "  \n" +
+            "\t<androidx.cardview.widget.CardView\n" +
+            "        android:layout_width=\"wrap_content\"\n" +
+            "        android:layout_height=\"wrap_content\"\n" +
+            "        android:layout_gravity=\"center\"\n" +
+            "        android:foregroundGravity=\"center\"\n" +
+            "        app:cardBackgroundColor=\"@android:color/holo_green_light\"\n" +
+            "        app:cardCornerRadius=\"10dp\">\n" +
+            "\t\t<Button\n" +
+            "            android:id=\"@+id/btn_time_picker\"\n" +
+            "            android:layout_width=\"wrap_content\"\n" +
+            "            android:layout_height=\"wrap_content\"\n" +
+            "            android:layout_gravity=\"center\"\n" +
+            "            android:paddingLeft=\"8dp\"\n" +
+            "            android:paddingRight=\"8dp\"\n" +
+            "            android:textAllCaps=\"false\"\n" +
+            "            android:drawablePadding=\"5dp\"\n" +
+            "            android:textSize=\"16sp\"\n" +
+            "            android:background=\"@android:color/holo_green_light\"\n" +
+            "            android:textColor=\"@android:color/black\"\n" +
+            "            android:text=\"No time chosen\" />\n" +
+            "\t</androidx.cardview.widget.CardView>\n" +
+            "\n" +
+            "  <!--Number Picker -->\n" +
+            "\t<NumberPicker\n" +
+            "        android:id=\"@+id/numberPicker\"\n" +
+            "        android:layout_width=\"match_parent\"\n" +
+            "        android:layout_height=\"wrap_content\" />\n" +
+            "</LinearLayout>\n";
+
+    private String pickerJava = "package com.appdevlab.mad;\n" +
+            "\n" +
+            "import android.app.DatePickerDialog;\n" +
+            "import android.app.TimePickerDialog;\n" +
+            "import android.os.Bundle;\n" +
+            "import android.view.View;\n" +
+            "import android.widget.Button;\n" +
+            "import android.widget.DatePicker;\n" +
+            "import android.widget.NumberPicker;\n" +
+            "import android.widget.TimePicker;\n" +
+            "import android.widget.Toast;\n" +
+            "\n" +
+            "import androidx.appcompat.app.AppCompatActivity;\n" +
+            "\n" +
+            "import java.util.Calendar;\n" +
+            "\n" +
+            "public class MainActivity extends AppCompatActivity {\n" +
+            "\n" +
+            "    Button btnDatePicker, btnTimePicker;\n" +
+            "    NumberPicker numberPicker;\n" +
+            "\n" +
+            "    int mDay, mMonth, mYear;\n" +
+            "\n" +
+            "    @Override\n" +
+            "    protected void onCreate(Bundle savedInstanceState) {\n" +
+            "        super.onCreate(savedInstanceState);\n" +
+            "        setContentView(R.layout.activity_main);\n" +
+            "\n" +
+            "        btnDatePicker = findViewById(R.id.btn_date_picker);\n" +
+            "        btnTimePicker = findViewById(R.id.btn_time_picker);\n" +
+            "        numberPicker = findViewById(R.id.numberPicker);\n" +
+            "\n" +
+            "        numberPicker.setMaxValue(10);\n" +
+            "        numberPicker.setMinValue(0);\n" +
+            "        numberPicker.setValue(3);\n" +
+            "\n" +
+            "\n" +
+            "        // Date Picker\n" +
+            "        btnDatePicker.setOnClickListener(new View.OnClickListener() {\n" +
+            "            @Override\n" +
+            "            public void onClick(View v) {\n" +
+            "                Calendar mcurrentDate = Calendar.getInstance();\n" +
+            "                mDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);\n" +
+            "                mMonth = mcurrentDate.get(Calendar.MONTH);\n" +
+            "                mYear = mcurrentDate.get(Calendar.YEAR);\n" +
+            "\n" +
+            "                DatePickerDialog datePickerDialog = new DatePickerDialog(PickerActivity.this, R.style.DateDialogTheme, new DatePickerDialog.OnDateSetListener() {\n" +
+            "                    @Override\n" +
+            "                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {\n" +
+            "                        month = month + 1;\n" +
+            "                        String date = String.format(\"%02d\",dayOfMonth) + \"/\" + String.format(\"%02d\",month) + \"/\" + String.format(\"%04d\",year);\n" +
+            "                        btnDatePicker.setText(date);\n" +
+            "                        Toast.makeText(getApplicationContext(),\"Selected date: \" + date, Toast.LENGTH_SHORT).show();\n" +
+            "                    }\n" +
+            "                }, mYear, mMonth,mDay);\n" +
+            "\n" +
+            "                datePickerDialog.show();\n" +
+            "            }\n" +
+            "        });\n" +
+            "\n" +
+            "        // Time Picker\n" +
+            "        btnTimePicker.setOnClickListener(new View.OnClickListener() {\n" +
+            "            @Override\n" +
+            "            public void onClick(View v) {\n" +
+            "                Calendar mcurrentTime = Calendar.getInstance();\n" +
+            "                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);\n" +
+            "                int minute = mcurrentTime.get(Calendar.MINUTE);\n" +
+            "\n" +
+            "                TimePickerDialog timePickerDialog = new TimePickerDialog(PickerActivity.this, R.style.TimeDialogTheme, new TimePickerDialog.OnTimeSetListener() {\n" +
+            "                    @Override\n" +
+            "                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {\n" +
+            "                        String time = selectedHour + \":\" + selectedMinute;\n" +
+            "                        btnTimePicker.setText(time);\n" +
+            "                        Toast.makeText(getApplicationContext(),\"Selected time: \" + time, Toast.LENGTH_SHORT).show();\n" +
+            "\n" +
+            "                    }\n" +
+            "                }, hour, minute, true);\n" +
+            "\n" +
+            "                timePickerDialog.setTitle(\"Select Time\");\n" +
+            "                timePickerDialog.show();\n" +
+            "            };\n" +
+            "        });\n" +
+            "\n" +
+            "        // Number Picker\n" +
+            "        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {\n" +
+            "            @Override\n" +
+            "            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {\n" +
+            "                Toast.makeText(getApplicationContext(),\"Selected number: \" + newVal,Toast.LENGTH_SHORT).show();\n" +
+            "            }\n" +
+            "        });\n" +
+            "    }\n" +
+            "}\n";
+
+    private String pickerJavaLocation = "java/MainActivity.java";
+    private String pickerXmlLocation = "res/layout/activity_main.xml";
+
+
     public String getTextXml() {
         return textXml;
     }
@@ -507,5 +672,21 @@ public class Code {
 
     public String getButtonXmlLocation() {
         return buttonXmlLocation;
+    }
+
+    public String getPickerXml() {
+        return pickerXml;
+    }
+
+    public String getPickerJava() {
+        return pickerJava;
+    }
+
+    public String getPickerJavaLocation() {
+        return pickerJavaLocation;
+    }
+
+    public String getPickerXmlLocation() {
+        return pickerXmlLocation;
     }
 }
