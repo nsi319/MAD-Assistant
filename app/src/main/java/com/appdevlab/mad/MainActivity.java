@@ -21,19 +21,18 @@ public class MainActivity extends AppCompatActivity {
 
         gridLayout = (GridLayout) findViewById(R.id.gridLayout);
 
-        // Set Event
         setGridItemClickEvent(gridLayout);
     }
 
-    private void setGridItemClickEvent(GridLayout glHome) {
-        // Loop all child item of Grid Layout
-        for (int i = 0; i < glHome.getChildCount(); i++) {
+    private void setGridItemClickEvent(GridLayout gridLayout) {
 
-            CardView cvCurrentItem = (CardView) glHome.getChildAt(i);
+        for (int i = 0; i < gridLayout.getChildCount(); i++) {
+
+            CardView cardView = (CardView) gridLayout.getChildAt(i);
 
             final int index = i;
 
-            cvCurrentItem.setOnClickListener(new View.OnClickListener() {
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent;
@@ -74,25 +73,10 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                             break;
                         case 7:
-                            Toast.makeText(getApplicationContext(), "Toast 7", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "SQLite Database", Toast.LENGTH_SHORT).show();
 
                             break;
-                        case 8:
-                            Toast.makeText(getApplicationContext(), "Toast 8", Toast.LENGTH_SHORT).show();
 
-                            break;
-                        case 9:
-                            Toast.makeText(getApplicationContext(), "Toast 9", Toast.LENGTH_SHORT).show();
-
-                            break;
-                        case 10:
-                            Toast.makeText(getApplicationContext(), "Toast 10", Toast.LENGTH_SHORT).show();
-
-                            break;
-                        case 11:
-                            Toast.makeText(getApplicationContext(), "Toast 11", Toast.LENGTH_SHORT).show();
-
-                            break;
                     }
                 }
             });

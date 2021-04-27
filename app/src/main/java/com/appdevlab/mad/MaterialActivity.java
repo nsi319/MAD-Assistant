@@ -8,16 +8,21 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MaterialActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
 
     MaterialButton openBottomSheet,closeBottomSheet;
     BottomSheetBehavior bottomSheetBehavior;
+
+    CoordinatorLayout coordinatorLayout;
+    MaterialButton btnDefaultSnackbar, btnActionSnackbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,6 +65,31 @@ public class MaterialActivity extends AppCompatActivity {
         });
 
 
+        // Snackbar
+        coordinatorLayout = findViewById(R.id.coordinator);
+        btnDefaultSnackbar = findViewById(R.id.btn_default_snackbar);
+        btnActionSnackbar = findViewById(R.id.btn_action_snackbar);
 
+        btnDefaultSnackbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(coordinatorLayout,"This is a default snackbar", Snackbar.LENGTH_LONG).show();
+            }
+        });
+
+        btnActionSnackbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Snackbar snackbar = Snackbar.make(coordinatorLayout,"Message Deleted",Snackbar.LENGTH_LONG)
+                        .setAction("UNDO", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Snackbar.make(coordinatorLayout,"Message Restored",Snackbar.LENGTH_SHORT).show();
+                            }
+                        });
+                snackbar.show();
+            }
+        });
     }
 }

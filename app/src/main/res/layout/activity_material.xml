@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".MaterialActivity"
-    tools:ignore="MissingPrefix">
+    >
 
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="10dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -119,7 +120,35 @@
         android:theme="@style/Theme.MaterialComponents.DayNight"
         android:text="OPEN BOTTOM SHEET"
         />
-        </LinearLayout>
+
+    <TextView
+        style="@style/module_text_info"
+        android:text="Snackbar" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_default_snackbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="10dp"
+        android:theme="@style/Theme.MaterialComponents.DayNight"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:text="SHOW DEFAULT SNACKBAR"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_action_snackbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="10dp"
+        android:theme="@style/Theme.MaterialComponents.DayNight"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:text="SHOW ACTION CALL SNACKBAR"
+        />
+    </LinearLayout>
+
 
     </androidx.core.widget.NestedScrollView>
 
@@ -180,6 +209,8 @@
             android:theme="@style/Theme.MaterialComponents.DayNight" />
 
     </RelativeLayout>
+
+
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
