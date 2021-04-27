@@ -101,6 +101,7 @@
                 android:paddingRight="10dp"
                 android:textSize="14sp"
                 android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/ic_person_add_black_24dp"
                 android:background="@android:color/holo_green_light"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:textColor="@android:color/black"
@@ -108,9 +109,26 @@
         </androidx.cardview.widget.CardView>
 
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <TextView
             style="@style/module_text_info"
             android:text="Update Student" />
+
+            <TextView
+                android:id="@+id/reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="2dp"
+                android:foregroundGravity="right"
+                android:gravity="right|end"
+                android:layout_marginTop="10dp"
+                android:text="RESET"
+                android:textColor="@android:color/holo_green_light"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

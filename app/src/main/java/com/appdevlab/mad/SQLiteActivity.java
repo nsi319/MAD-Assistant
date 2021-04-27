@@ -2,6 +2,7 @@ package com.appdevlab.mad;
 
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,7 +19,7 @@ import static android.view.View.GONE;
 
 public class SQLiteActivity extends AppCompatActivity {
 
-    TextView name, roll, rollUpdate, nameUpdate, studentList;
+    TextView name, roll, rollUpdate, nameUpdate, reset, studentList;
     int found = -1;
     DatabaseManager databaseManager;
     Student student;
@@ -36,7 +37,7 @@ public class SQLiteActivity extends AppCompatActivity {
         findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(roll.getText().equals("") || name.getText().equals(""))
+                if(roll.getText().toString().equals("") || name.getText().toString().equals(""))
                     Toast.makeText(getApplicationContext(),"Please enter required fields", Toast.LENGTH_SHORT).show();
                 else {
                     databaseManager = new DatabaseManager(getApplicationContext());
@@ -58,13 +59,26 @@ public class SQLiteActivity extends AppCompatActivity {
 
         rollUpdate = findViewById(R.id.roll_update);
         nameUpdate = findViewById(R.id.name_update);
+        reset = findViewById(R.id.reset);
+
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                found = -1;
+                rollUpdate.setEnabled(true);
+                findViewById(R.id.nameLayout).setVisibility(View.GONE);
+                findViewById(R.id.updateCard).setVisibility(View.GONE);
+                findViewById(R.id.findCard).setVisibility(View.VISIBLE);
+                nameUpdate.setText("");
+                rollUpdate.setText("");
+            }
+        });
 
         if(found==-1) {
             findViewById(R.id.nameLayout).setVisibility(GONE);
-            findViewById(R.id.nameLayout).setVisibility(GONE);
         }
         else {
-            findViewById(R.id.nameLayout).setVisibility(View.VISIBLE);
             findViewById(R.id.nameLayout).setVisibility(View.VISIBLE);
         }
 
@@ -74,7 +88,7 @@ public class SQLiteActivity extends AppCompatActivity {
                 DatabaseManager databaseManager = new DatabaseManager(getApplicationContext());
                 databaseManager.open();
 
-                if(rollUpdate.getText().equals("")) {
+                if(rollUpdate.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(),"Please enter roll number", Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -117,8 +131,8 @@ public class SQLiteActivity extends AppCompatActivity {
             }
         });
 
-        // Get all students
 
+        // Get all students
         studentList = findViewById(R.id.studentList);
         findViewById(R.id.get).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,14 +140,18 @@ public class SQLiteActivity extends AppCompatActivity {
                 DatabaseManager databaseManager = new DatabaseManager(getApplicationContext());
                 databaseManager.open();
                 List<Student> students = databaseManager.getAllStudents();
-                if(students.size()==0)
-                    studentList.setText("There are no students in database");
+                if(students.size()==0) {
+                    studentList.setText(Html.fromHtml("<b>There are no students in database</b>"));
+                    studentList.setGravity(Gravity.CENTER);
+                    studentList.setTextSize(15);
+                }
                 else {
                     String text = "";
                     for(Student student : students)
-                        text = text + "<b>Name: </b>" + student.name + "<br><b>Roll:  </b>" + student.roll + "<br><br>";
+                        text = text + "<b>Name: </b>" + student.name + "<br><b>Roll: </b>" + student.roll + "<br><br>";
 
-                    studentList.setText(Html.fromHtml(text).toString());
+                    studentList.setText(Html.fromHtml(text));
+                    studentList.setGravity(Gravity.NO_GRAVITY);
 
                 }
             }
