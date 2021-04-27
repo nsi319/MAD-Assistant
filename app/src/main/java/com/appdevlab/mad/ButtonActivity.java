@@ -36,10 +36,10 @@ public class ButtonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_button);
 
         Code code = new Code();
-        javaCode  = code.getTextJava();
-        xmlCode = code.getTextXml();
-        javaLocation = code.getTextJavaLocation();
-        xmlLocation = code.getTextXmlLocation();
+        javaCode  = code.getButtonJava();
+        xmlCode = code.getButtonXml();
+        javaLocation = code.getButtonJavaLocation();
+        xmlLocation = code.getButtonXmlLocation();
 
 
         codeFab = findViewById(R.id.code);

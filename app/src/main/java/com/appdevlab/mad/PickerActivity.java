@@ -40,6 +40,7 @@ public class PickerActivity extends AppCompatActivity {
         numberPicker.setValue(3);
 
 
+        // Date Picker
         btnDatePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,12 +55,15 @@ public class PickerActivity extends AppCompatActivity {
                         month = month + 1;
                         String date = String.format("%02d",dayOfMonth) + "/" + String.format("%02d",month) + "/" + String.format("%04d",year);
                         btnDatePicker.setText(date);
+                        Toast.makeText(getApplicationContext(),"Selected date: " + date, Toast.LENGTH_SHORT).show();
                     }
                 }, mYear, mMonth,mDay);
 
-                datePickerDialog.show();            }
+                datePickerDialog.show();
+            }
         });
 
+        // Time Picker
         btnTimePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,12 +74,24 @@ public class PickerActivity extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(PickerActivity.this, R.style.TimeDialogTheme, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        btnTimePicker.setText( selectedHour + ":" + selectedMinute);
+                        String time = selectedHour + ":" + selectedMinute;
+                        btnTimePicker.setText(time);
+                        Toast.makeText(getApplicationContext(),"Selected time: " + time, Toast.LENGTH_SHORT).show();
+
                     }
-                }, hour, minute, true);//Yes 24 hour time
+                }, hour, minute, true);
+
                 timePickerDialog.setTitle("Select Time");
                 timePickerDialog.show();
             };
+        });
+
+        //Number Picker
+        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                Toast.makeText(getApplicationContext(),"Selected number: " + newVal,Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

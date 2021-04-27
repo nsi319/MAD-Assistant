@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".SeekbarActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:src="@drawable/ic_code_black_24dp" />
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SeekbarActivity">
+    >
 
     <TextView
         style="@style/module_text_info"
@@ -15,13 +30,14 @@
     <SeekBar
         android:id="@+id/seekBar1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:progress="45"
+        />
 
     <TextView
-        android:id="@+id/textView2"
         style="@style/module_text_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Seekbar (Discrete)" />
 
     <SeekBar
@@ -29,14 +45,13 @@
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
         android:max="10"
         android:progress="6" />
 
     <TextView
-        android:id="@+id/textView3"
         style="@style/module_text_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Progress Bar (Horizontal)" />
 
     <ProgressBar
@@ -44,20 +59,25 @@
         style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
         android:indeterminateOnly="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        />
 
     <TextView
-        android:id="@+id/textView4"
         style="@style/module_text_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Progress Bar (Circular)" />
 
     <ProgressBar
         android:id="@+id/progressBar2"
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        />
 
 
 </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
