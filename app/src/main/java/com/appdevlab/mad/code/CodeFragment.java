@@ -45,6 +45,7 @@ public class CodeFragment extends Fragment {
         codeView.highlightCode("java");
         codeView.setCodeContent(code);
         codeView.setColorTheme(ColorTheme.MONOKAI);
+        codeView.animate();
 
         ((TextView) view.findViewById(R.id.tv_file_location)).setText("Location: " + location);
 

@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="Default Button" />
 
     <Button
@@ -22,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="Borderless Button" />
 
     <Button
@@ -30,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="Borderless Colored Button" />
 
     <Button
@@ -38,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="ButtonBar AlertDialog" />
 
     <Button
@@ -46,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="Colored Button" />
 
 
@@ -56,6 +61,7 @@
         style="@style/Widget.AppCompat.Button.Small"
         android:theme="@style/Theme.MaterialComponents.DayNight"
         android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="Material Button" />
 
 

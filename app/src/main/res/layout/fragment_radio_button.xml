@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Selected : None"
+        android:fontFamily="sans-serif-condensed"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textStyle="bold" />
@@ -28,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
             android:text="Android Native (Java)" />
 
         <RadioButton
@@ -35,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
             android:text="Flutter (Dart)" />
 
         <RadioButton
@@ -42,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed"
             android:text="React Native (JS)" />
     </RadioGroup>
     

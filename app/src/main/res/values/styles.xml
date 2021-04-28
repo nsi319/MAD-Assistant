@@ -7,13 +7,19 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="titleTextStyle">@style/myActionBarTextTitle</item>
     </style>
 
     <style name="ModuleTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="myActionBarTextTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
     <style name="main_grid_cardview" parent="CardView">
@@ -53,9 +59,11 @@
     </style>
     <style name="DateDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@android:color/holo_blue_light</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
     <style name="TimeDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@android:color/holo_green_light</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
 </resources>

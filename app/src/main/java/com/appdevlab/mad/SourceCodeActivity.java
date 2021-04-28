@@ -3,8 +3,10 @@ package com.appdevlab.mad;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -25,7 +27,9 @@ public class SourceCodeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_source_code);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.abs_layout);
+        ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title)).setText("Source Code");
 
 
         javaCode = getIntent().getStringExtra("java");
@@ -38,7 +42,7 @@ public class SourceCodeActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setBackgroundColor(Color.parseColor("#33b5e5"));
+        tabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
     }
     private void setupViewPager(ViewPager viewPager) {

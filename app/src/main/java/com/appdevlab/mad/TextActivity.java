@@ -1,9 +1,13 @@
 package com.appdevlab.mad;
 
 import android.content.Intent;
+import android.graphics.fonts.Font;
+import android.graphics.fonts.FontFamily;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.appdevlab.mad.model.Code;
@@ -19,6 +23,10 @@ public class TextActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.abs_layout);
+        ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title)).setText("TextView & EditText");
+
         Code code = new Code();
 
         javaCode  = code.getTextJava();

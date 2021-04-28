@@ -625,6 +625,131 @@ public class Code {
     private String pickerXmlLocation = "res/layout/activity_main.xml";
 
 
+    private String spinnerXml = "<LinearLayout\n" +
+            "\txmlns:android=\"http://schemas.android.com/apk/res/android\"\n" +
+            "\txmlns:tools=\"http://schemas.android.com/tools\"\n" +
+            "        android:layout_width=\"match_parent\"\n" +
+            "        android:layout_height=\"match_parent\"\n" +
+            "\txmlns:app=\"http://schemas.android.com/apk/res-auto\"\n" +
+            "        android:orientation=\"vertical\"\n" +
+            "        android:layout_margin=\"16dp\"\n" +
+            "        tools:context=\".MainActivity\">\n" +
+            "    \n" +
+            "    <!--Spinner (Dialog)-->\n" +
+            "    \n" +
+            "\t<RelativeLayout\n" +
+            "        android:layout_width=\"match_parent\"\n" +
+            "        android:layout_height=\"wrap_content\"\n" +
+            "        android:layout_marginLeft=\"5dp\"\n" +
+            "        android:layout_marginTop=\"15dp\"\n" +
+            "        android:layout_marginRight=\"5dp\"\n" +
+            "        android:layout_marginBottom=\"15dp\"\n" +
+            "        android:orientation=\"horizontal\">\n" +
+            "\t\t<Spinner\n" +
+            "            android:id=\"@+id/spinner_dialog\"\n" +
+            "            android:layout_width=\"match_parent\"\n" +
+            "            android:layout_height=\"wrap_content\"\n" +
+            "            android:layout_marginLeft=\"5dp\"\n" +
+            "            android:background=\"@android:color/transparent\"\n" +
+            "            android:spinnerMode=\"dialog\"\n" +
+            "            android:textSize=\"16sp\" />\n" +
+            "\t\t<ImageView\n" +
+            "            android:layout_width=\"wrap_content\"\n" +
+            "            android:layout_height=\"wrap_content\"\n" +
+            "            android:layout_alignParentRight=\"true\"\n" +
+            "            android:layout_marginRight=\"20dp\"\n" +
+            "            android:src=\"@drawable/ic_arrow_drop_down_black_24dp\" />\n" +
+            "\t</RelativeLayout>\n" +
+            "\t\n" +
+            "    <!--Spinner (Dropdown)-->\n" +
+            "\n" +
+            "\t<RelativeLayout\n" +
+            "        android:layout_width=\"match_parent\"\n" +
+            "        android:layout_height=\"wrap_content\"\n" +
+            "        android:layout_marginLeft=\"5dp\"\n" +
+            "        android:layout_marginTop=\"15dp\"\n" +
+            "        android:layout_marginRight=\"5dp\"\n" +
+            "        android:layout_marginBottom=\"15dp\"\n" +
+            "        android:orientation=\"horizontal\">\n" +
+            "\t\t<Spinner\n" +
+            "            android:id=\"@+id/spinner_dropdown\"\n" +
+            "            android:layout_width=\"match_parent\"\n" +
+            "            android:layout_height=\"wrap_content\"\n" +
+            "            android:layout_marginLeft=\"5dp\"\n" +
+            "            android:background=\"@android:color/transparent\"\n" +
+            "            android:spinnerMode=\"dropdown\"\n" +
+            "            android:textSize=\"16sp\" />\n" +
+            "\t\t<ImageView\n" +
+            "            android:layout_width=\"wrap_content\"\n" +
+            "            android:layout_height=\"wrap_content\"\n" +
+            "            android:layout_alignParentRight=\"true\"\n" +
+            "            android:layout_marginRight=\"20dp\"\n" +
+            "            android:src=\"@drawable/ic_arrow_drop_down_black_24dp\" />\n" +
+            "\t</RelativeLayout>\n" +
+            "</LinearLayout>";
+
+    private String spinnerJava = "package com.appdevlab.mad;\n" +
+            "\n" +
+            "import android.os.Bundle;\n" +
+            "import android.util.Log;\n" +
+            "import android.view.View;\n" +
+            "import android.widget.AdapterView;\n" +
+            "import android.widget.ArrayAdapter;\n" +
+            "import android.widget.Spinner;\n" +
+            "import android.widget.TextView;\n" +
+            "import android.widget.Toast;\n" +
+            "\n" +
+            "import androidx.annotation.Nullable;\n" +
+            "import androidx.appcompat.app.ActionBar;\n" +
+            "import androidx.appcompat.app.AppCompatActivity;\n" +
+            "import java.util.ArrayList;\n" +
+            "import java.util.List;\n" +
+            "\n" +
+            "public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {\n" +
+            "\n" +
+            "    Spinner spinnerDropdown, spinnerDialog;\n" +
+            "    @Override\n" +
+            "    protected void onCreate(@Nullable Bundle savedInstanceState) {\n" +
+            "        super.onCreate(savedInstanceState);\n" +
+            "        setContentView(R.layout.activity_main);\n" +
+            "\n" +
+            "        spinnerDropdown = (Spinner) findViewById(R.id.spinner_dropdown);\n" +
+            "        spinnerDialog = (Spinner) findViewById(R.id.spinner_dialog);\n" +
+            "\n" +
+            "        spinnerDropdown.setOnItemSelectedListener(this);\n" +
+            "        spinnerDialog.setOnItemSelectedListener(this);\n" +
+            "\n" +
+            "        List<String> places = new ArrayList<String>();\n" +
+            "        places.add(\"BARN Hall\");\n" +
+            "        places.add(\"Octagon Computer Center\");\n" +
+            "        places.add(\"Lecture Hall Complex (LHC)\");\n" +
+            "        places.add(\"Shopping Center\");\n" +
+            "        places.add(\"CSE Department\");\n" +
+            "\n" +
+            "\n" +
+            "        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, places);\n" +
+            "        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);\n" +
+            "\n" +
+            "        spinnerDropdown.setAdapter(arrayAdapter);\n" +
+            "        spinnerDialog.setAdapter(arrayAdapter);\n" +
+            "\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {\n" +
+            "        Toast.makeText(getApplicationContext(),parent.getItemAtPosition(position).toString() + \" selected\",Toast.LENGTH_SHORT).show();\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public void onNothingSelected(AdapterView<?> parent) {\n" +
+            "\n" +
+            "    }\n" +
+            "}\n";
+
+    private String spinnerJavaLocation = "java/MainActivity.java";
+    private String spinnerXmlLocation = "res/layout/activity_main.xml";
+
+
     public String getTextXml() {
         return textXml;
     }
@@ -688,5 +813,21 @@ public class Code {
 
     public String getPickerXmlLocation() {
         return pickerXmlLocation;
+    }
+
+    public String getSpinnerXml() {
+        return spinnerXml;
+    }
+
+    public String getSpinnerJava() {
+        return spinnerJava;
+    }
+
+    public String getSpinnerJavaLocation() {
+        return spinnerJavaLocation;
+    }
+
+    public String getSpinnerXmlLocation() {
+        return spinnerXmlLocation;
     }
 }
