@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -18,6 +18,14 @@
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
+
+    <style name="BottomNavigation.ActiveItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="BottomNavigation.InactiveItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#F5F5F5</item>
+    </style>
     <style name="myActionBarTextTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>

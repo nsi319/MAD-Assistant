@@ -1,278 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    android:theme="@style/AppTheme"
+    >
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#eee">
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?attr/colorOnSurface"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:itemTextAppearanceActive="@style/BottomNavigation.ActiveItemTextAppearance"
+        app:itemTextAppearanceInactive="@style/BottomNavigation.InactiveItemTextAppearance"
+        app:menu="@menu/bottom_nav_menu" />
 
-        <FrameLayout
-            android:padding="20dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryDark" />
-
-            <TextView
-                android:id="@+id/main_tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/app_name"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="#fff"
-                android:textSize="32sp" />
-        </FrameLayout>
-
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            >
-        <GridLayout
-            android:id="@+id/gridLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:alignmentMode="alignMargins"
-            android:columnCount="2"
-            android:columnOrderPreserved="false"
-            android:padding="14dp">
-
-            <!--Row 1-->
-            <!-- Col 1 -->
-            <androidx.cardview.widget.CardView
-                style="@style/main_grid_cardview">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_text_fields_24dp"
-                        android:tint="@color/colorPrimaryDark" />
-
-                    <TextView
-                        style="@style/main_grid_item_text"
-                        android:text="TextView &amp; EditText" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!--Row 1-->
-            <!-- Col 2 -->
-            <androidx.cardview.widget.CardView
-                style="@style/main_grid_cardview">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_touch_app_24dp"
-                        android:tint="@android:color/holo_green_dark"/>
-
-                    <TextView
-                        style="@style/main_grid_item_text"
-                        android:text="Buttons"/>
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!--Row 2-->
-            <!-- Col 1 -->
-
-            <androidx.cardview.widget.CardView
-                style="@style/main_grid_cardview">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_room_24dp"
-                        android:tint="@android:color/holo_red_dark"/>
-
-                    <TextView
-                        style="@style/main_grid_item_text"
-                        android:text="Seekbar &amp; Progressbar"/>
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!--Row 2-->
-            <!-- Col 2 -->
-            <androidx.cardview.widget.CardView
-                style="@style/main_grid_cardview">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_date_range_24dp"
-                        android:tint="@android:color/holo_blue_dark"/>
-
-                    <TextView
-                        style="@style/main_grid_item_text"
-                        android:text="Pickers" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!--Row 3-->
-            <!-- Col 1 -->
-
-            <androidx.cardview.widget.CardView
-                style="@style/main_grid_cardview">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_keyboard_arrow_down_24dp"
-                        android:tint="@color/colorPrimaryDark"/>
-
-                    <TextView
-                        style="@style/main_grid_item_text"
-                        android:text="Spinner" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!--Row 3-->
-            <!-- Col 2 -->
-            <androidx.cardview.widget.CardView
-                style="@style/main_grid_cardview">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_menu_black_24dp"
-                        android:tint="@android:color/holo_orange_light"/>
-
-                    <TextView
-                        style="@style/main_grid_item_text"
-                        android:text="Menu" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!--Placeholder-->
-            <!--Row 4-->
-            <!-- Col 1 -->
-            <androidx.cardview.widget.CardView
-                style="@style/main_grid_cardview">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_android_black_24dp"
-                        android:tint="@android:color/holo_purple"/>
-
-                    <TextView
-                        style="@style/main_grid_item_text"
-                        android:text="Material Design"/>
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!--Row 4-->
-            <!-- Col 2 -->
-            <androidx.cardview.widget.CardView
-                style="@style/main_grid_cardview">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_storage_black_24dp"
-                        android:tint="@android:color/widget_edittext_dark"/>
-
-                    <TextView
-                        style="@style/main_grid_item_text"
-                        android:text="SQLite Database"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </GridLayout>
-        </ScrollView>
-
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

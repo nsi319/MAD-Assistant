@@ -1,87 +1,45 @@
 package com.appdevlab.mad;
 
-import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.GridLayout;
-import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
-
-    GridLayout gridLayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        ColorStateList iconColorStates = new ColorStateList(
+                new int[][]{
+                        new int[]{-android.R.attr.state_checked},
+                        new int[]{android.R.attr.state_checked}
+                },
+                new int[]{
+                        Color.GRAY,
+                        getResources().getColor(R.color.colorPrimaryDark),
+                });
 
-        gridLayout = (GridLayout) findViewById(R.id.gridLayout);
 
-        setGridItemClickEvent(gridLayout);
+        navView.setBackgroundColor(Color.parseColor("#F5F5F5"));
+        navView.setItemIconTintList(iconColorStates);
+        navView.setItemTextColor(iconColorStates);
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_quiz, R.id.navigation_tutorial)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        getSupportActionBar().hide();
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
     }
 
-    private void setGridItemClickEvent(GridLayout gridLayout) {
-
-        for (int i = 0; i < gridLayout.getChildCount(); i++) {
-
-            CardView cardView = (CardView) gridLayout.getChildAt(i);
-
-            final int index = i;
-
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent;
-                    switch (index) {
-                        case 0:
-                            Toast.makeText(getApplicationContext(), "Welcome to TextView & EditText", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), TextActivity.class);
-                            startActivity(intent);
-                            break;
-                        case 1:
-                            Toast.makeText(getApplicationContext(), "Welcome to Buttons", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), ButtonActivity.class);
-                            startActivity(intent);
-                            break;
-                        case 2:
-                            Toast.makeText(getApplicationContext(), "Welcome to Seekbar & Progressbar", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), SeekbarActivity.class);
-                            startActivity(intent);
-                            break;
-                        case 3:
-                            Toast.makeText(getApplicationContext(), "Welcome to Pickers", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), PickerActivity.class);
-                            startActivity(intent);
-                            break;
-                        case 4:
-                            Toast.makeText(getApplicationContext(), "Welcome to Spinners & Dropdown", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), SpinnerActivity.class);
-                            startActivity(intent);
-                            break;
-                        case 5:
-                            Toast.makeText(getApplicationContext(), "Welcome to Menu", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), MenuActivity.class);
-                            startActivity(intent);
-                            break;
-                        case 6:
-                            Toast.makeText(getApplicationContext(), "Welcome to Material Design", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), MaterialActivity.class);
-                            startActivity(intent);
-                            break;
-                        case 7:
-                            Toast.makeText(getApplicationContext(), "Welcome to SQLite Database", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(getApplicationContext(), SQLiteActivity.class);
-                            startActivity(intent);
-                            break;
-
-                    }
-                }
-            });
-
-        }
-    }
 }
