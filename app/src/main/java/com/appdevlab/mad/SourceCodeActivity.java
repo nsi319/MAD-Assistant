@@ -2,6 +2,7 @@ package com.appdevlab.mad;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -23,6 +24,9 @@ public class SourceCodeActivity extends AppCompatActivity {
 
     String javaCode, xmlCode;
     String javaLocation, xmlLocation;
+    int count=2;
+    ArrayList<String> newTabs, newCodes, newFileLocations;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,15 +41,35 @@ public class SourceCodeActivity extends AppCompatActivity {
         javaLocation = getIntent().getStringExtra("javaLocation");
         xmlLocation = getIntent().getStringExtra("xmlLocation");
 
+
+        if(getIntent().getIntExtra("count",2)!=2) {
+            count = getIntent().getIntExtra("count",2);
+            newTabs =  new ArrayList<>();
+            for(String s1 : getIntent().getStringArrayExtra("tabs")) {
+                newTabs.add(s1);
+                Log.d("MY_LOG_TAG_TAB",s1);
+            }
+            newCodes =  new ArrayList<>();
+            for(String s2 : getIntent().getStringArrayExtra("codes")) {
+                newCodes.add(s2);
+                Log.d("MY_LOG_TAG_CODE",s2);
+            }
+            newFileLocations =  new ArrayList<>();
+            for(String s3 : getIntent().getStringArrayExtra("locations")) {
+                newFileLocations.add(s3);
+                Log.d("MY_LOG_TAG_LOC",s3);
+            }
+        }
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        setupViewPager(viewPager);
+        setupViewPager(viewPager, newTabs, newCodes, newFileLocations);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
     }
-    private void setupViewPager(ViewPager viewPager) {
+    private void setupViewPager(ViewPager viewPager, ArrayList<String> newTabs,ArrayList<String> newCodes, ArrayList<String> newFileLocations) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         CodeFragment javaCodeFragment = new CodeFragment();
@@ -62,9 +86,23 @@ public class SourceCodeActivity extends AppCompatActivity {
         bundle2.putString("location",xmlLocation);
         xmlCodeFragment.setArguments(bundle2);
 
-
         adapter.addFragment(javaCodeFragment, "JAVA");
         adapter.addFragment(xmlCodeFragment, "XML");
+
+        if(count!=2) {
+            for(int i=0;i<count-2;i++) {
+                CodeFragment codeFragment = new CodeFragment();
+
+                Bundle bundle3 = new Bundle();
+                bundle3.clear();
+                bundle3.putString("code",newCodes.get(i));
+                bundle3.putString("location",newFileLocations.get(i));
+                codeFragment.setArguments(bundle3);
+                adapter.addFragment(codeFragment, newTabs.get(i));
+
+                Log.d("MY_LOG_TAG",i + newTabs.get(i) + " " + newFileLocations.get(i));
+            }
+        }
 
         viewPager.setAdapter(adapter);
     }

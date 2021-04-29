@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -156,11 +155,8 @@ public class SQLiteActivity extends AppCompatActivity {
 
                     studentList.setText(Html.fromHtml(text));
                     studentList.setGravity(Gravity.NO_GRAVITY);
-
                 }
             }
         });
-
-
     }
 }

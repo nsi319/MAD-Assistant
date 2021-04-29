@@ -1,6 +1,7 @@
 package com.appdevlab.mad;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.appdevlab.mad.model.Code;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,6 +27,9 @@ public class MaterialActivity extends AppCompatActivity {
 
     CoordinatorLayout coordinatorLayout;
     MaterialButton btnDefaultSnackbar, btnActionSnackbar;
+    FloatingActionButton codeFab;
+    String javaCode, xmlCode, javaLocation,xmlLocation;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +38,27 @@ public class MaterialActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title)).setText("Material Design");
+
+        Code code = new Code();
+        javaCode  = code.getMaterialJava();
+        xmlCode = code.getMaterialXml();
+        javaLocation = code.getMaterialJavaLocation();
+        xmlLocation = code.getMaterialXmlLocation();
+
+
+        codeFab = findViewById(R.id.code);
+
+        codeFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaterialActivity.this, SourceCodeActivity.class);
+                intent.putExtra("java",javaCode);
+                intent.putExtra("xml",xmlCode);
+                intent.putExtra("javaLocation",javaLocation);
+                intent.putExtra("xmlLocation",xmlLocation);
+                startActivity(intent);
+            }
+        });
 
         // FAB
         floatingActionButton = findViewById(R.id.fab);

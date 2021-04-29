@@ -1,6 +1,7 @@
 package com.appdevlab.mad;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -19,12 +20,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.appdevlab.mad.model.Code;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuActivity extends AppCompatActivity {
 
     Button btnPopupMenu;
+    FloatingActionButton codeFab;
+    String javaCode, xmlCode,xml2Code, javaLocation,xmlLocation,xml2Location;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +39,39 @@ public class MenuActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title)).setText("Menu");
+
+        Code code = new Code();
+        javaCode  = code.getMenuJava();
+        xmlCode = code.getMenuXml();
+        xml2Code = code.getMenuXml2();
+        javaLocation = code.getMenuJavaLocation();
+        xmlLocation = code.getMenuXmlLocation();
+        xml2Location = code.getMenuXml2Location();
+
+
+        codeFab = findViewById(R.id.code);
+
+        codeFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, SourceCodeActivity.class);
+                intent.putExtra("count",3);
+                intent.putExtra("java",javaCode);
+                intent.putExtra("xml",xmlCode);
+                intent.putExtra("javaLocation",javaLocation);
+                intent.putExtra("xmlLocation",xmlLocation);
+
+                String[] tabs = {"XML-Menu"};
+                String[] codes = {xml2Code};
+                String[] locations = {xml2Location};
+
+                intent.putExtra("tabs",tabs);
+                intent.putExtra("codes",codes);
+                intent.putExtra("locations",locations);
+
+                startActivity(intent);
+            }
+        });
 
         // Context Menu
         List<String> places = new ArrayList<String>();
@@ -87,7 +126,7 @@ public class MenuActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.add:
-                Toast.makeText(getApplicationContext(),"Selected Mark for " + place,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Selected Add for " + place,Toast.LENGTH_SHORT).show();
                 break;
             case R.id.edit:
                 Toast.makeText(getApplicationContext(),"Selected Edit for " + place,Toast.LENGTH_SHORT).show();
