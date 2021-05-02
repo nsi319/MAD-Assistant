@@ -1,5 +1,6 @@
 package com.appdevlab.mad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
@@ -11,7 +12,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.appdevlab.mad.model.Code;
 import com.appdevlab.mad.model.Student;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -24,6 +27,10 @@ public class SQLiteActivity extends AppCompatActivity {
     DatabaseManager databaseManager;
     Student student;
 
+    FloatingActionButton codeFab;
+    String javaCode, xmlCode, databaseCode, studentCode, managerCode, javaLocation,xmlLocation,databaseLocation, studentLocation, managerLocation;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +39,44 @@ public class SQLiteActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title)).setText("SQLite Database");
 
+
+        Code code = new Code();
+        javaCode  = code.getSqliteJava();
+        xmlCode = code.getSqliteXml();
+        databaseCode = code.getSqliteDbManager();
+        managerCode = code.getSqliteDbManager();
+        studentCode = code.getSqliteStudent();
+
+        javaLocation = code.getMenuJavaLocation();
+        xmlLocation = code.getMenuXmlLocation();
+        databaseLocation = code.getSqliteDatabaseLocation();
+        managerLocation = code.getSqliteDbManagerLocation();
+        studentLocation = code.getSqliteStudentLocation();
+
+
+        codeFab = findViewById(R.id.code);
+
+        codeFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SQLiteActivity.this, SourceCodeActivity.class);
+                intent.putExtra("count",5);
+                intent.putExtra("java",javaCode);
+                intent.putExtra("xml",xmlCode);
+                intent.putExtra("javaLocation",javaLocation);
+                intent.putExtra("xmlLocation",xmlLocation);
+
+                String[] tabs = {"MODEL","DB","DBM"};
+                String[] codes = {studentCode,databaseCode,managerCode};
+                String[] locations = {studentLocation,databaseLocation,managerLocation};
+
+                intent.putExtra("tabs",tabs);
+                intent.putExtra("codes",codes);
+                intent.putExtra("locations",locations);
+
+                startActivity(intent);
+            }
+        });
 
         // Add Student
         roll = findViewById(R.id.roll);

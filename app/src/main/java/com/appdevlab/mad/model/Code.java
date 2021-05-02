@@ -392,7 +392,7 @@ public class Code {
             "        android:layout_marginTop=\"8dp\"\n" +
             "        android:layout_marginBottom=\"10dp\"\n" +
             "        />\n" +
-            "</LinearLayout>";
+            "</LinearLayout> \n";
 
     private String seekJava = "package com.appdevlab.mad;\n" +
             "\n" +
@@ -1882,6 +1882,7 @@ public class Code {
     public String getSqliteStudentLocation() {
         return sqliteStudentLocation;
     }
+
 
     public String getMaterialXml() {
         return materialXml;

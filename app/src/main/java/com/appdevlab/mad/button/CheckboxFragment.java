@@ -1,4 +1,4 @@
-package com.appdevlab.mad.component.button;
+package com.appdevlab.mad.button;
 
 
 import android.os.Bundle;
@@ -18,14 +18,12 @@ public class CheckboxFragment extends Fragment {
 
     CheckBox checkBox;
     public CheckboxFragment() {
-        // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_checkbox, container, false);
 
         checkBox = view.findViewById(R.id.checkBox);

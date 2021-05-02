@@ -1,9 +1,12 @@
 package com.appdevlab.mad;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -27,6 +30,7 @@ public class SourceCodeActivity extends AppCompatActivity {
     int count=2;
     ArrayList<String> newTabs, newCodes, newFileLocations;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

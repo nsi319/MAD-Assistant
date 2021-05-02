@@ -2,7 +2,6 @@ package com.appdevlab.mad;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,11 +9,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.appdevlab.mad.component.button.ButtonFragment;
-import com.appdevlab.mad.component.button.CheckboxFragment;
-import com.appdevlab.mad.component.button.ImageButtonFragment;
-import com.appdevlab.mad.component.button.RadioButtonFragment;
-import com.appdevlab.mad.component.button.ToggleSwitchButtonFragment;
+import com.appdevlab.mad.button.ButtonFragment;
+import com.appdevlab.mad.button.CheckboxFragment;
+import com.appdevlab.mad.button.ImageButtonFragment;
+import com.appdevlab.mad.button.RadioButtonFragment;
+import com.appdevlab.mad.button.ToggleSwitchButtonFragment;
 import com.appdevlab.mad.model.Code;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

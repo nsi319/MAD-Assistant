@@ -1,4 +1,4 @@
-package com.appdevlab.mad.component.button;
+package com.appdevlab.mad.button;
 
 
 import android.os.Bundle;
@@ -13,14 +13,12 @@ public class ToggleSwitchButtonFragment extends Fragment {
 
 
     public ToggleSwitchButtonFragment() {
-        // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_toggle_switch_button, container, false);
     }
 

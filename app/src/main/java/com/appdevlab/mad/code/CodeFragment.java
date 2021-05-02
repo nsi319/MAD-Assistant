@@ -17,7 +17,9 @@ import androidx.fragment.app.Fragment;
 
 import com.appdevlab.mad.R;
 
-import io.github.kbiakov.codeview.CodeView;
+import br.tiagohm.codeview.CodeView;
+import br.tiagohm.codeview.Language;
+import br.tiagohm.codeview.Theme;
 import io.github.kbiakov.codeview.highlight.ColorTheme;
 
 
@@ -42,10 +44,20 @@ public class CodeFragment extends Fragment {
 
         CodeView codeView = (CodeView) view.findViewById(R.id.tv_code);
 
-        codeView.highlightCode("java");
-        codeView.setCodeContent(code);
-        codeView.setColorTheme(ColorTheme.DEFAULT);
-        codeView.animate();
+        codeView.setTheme(Theme.DRACULA)
+                .setCode(code)
+                .setLanguage(Language.JAVA)
+                .setWrapLine(true)
+                .setFontSize(8)
+                .setZoomEnabled(true)
+                .setShowLineNumber(true)
+                .setStartLineNumber(0)
+                .apply();
+        codeView.setShowLineNumber(true).setStartLineNumber(1).apply();
+//        codeView.highlightCode("java");
+//        codeView.setCodeContent(code);
+//        codeView.setColorTheme(ColorTheme.MONOKAI);
+
 
         ((TextView) view.findViewById(R.id.tv_file_location)).setText("Location: " + location);
 

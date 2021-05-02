@@ -38,10 +38,23 @@
             android:fontFamily="sans-serif-condensed"
             android:textStyle="bold" />
     </RelativeLayout>
-    <io.github.kbiakov.codeview.CodeView
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"
+
+        >
+    <br.tiagohm.codeview.CodeView
         android:id="@+id/tv_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:cv_highlight_line_number="36"
+        app:cv_show_line_number="true"
+        app:cv_start_line_number="0"
+        app:cv_wrap_line="true"
+        app:cv_zoom_enable="true"
         />
+    </ScrollView>
 
 </LinearLayout>

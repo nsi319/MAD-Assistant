@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".component.button.RadioButtonFragment">
+    tools:context=".button.RadioButtonFragment">
 
     <TextView
         style="@style/component_name"

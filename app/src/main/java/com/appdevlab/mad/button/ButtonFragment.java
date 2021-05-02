@@ -1,8 +1,7 @@
-package com.appdevlab.mad.component.button;
+package com.appdevlab.mad.button;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ public class ButtonFragment extends Fragment {
     Button btnDefault, btnBorderless, btnBorderlessColored, btnColored, btnMaterial, btnBarAlertDialog;
 
     public ButtonFragment() {
-        // Required empty public constructor
     }
 
 
@@ -29,7 +27,6 @@ public class ButtonFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_button, container, false);
 
 
@@ -54,7 +51,7 @@ public class ButtonFragment extends Fragment {
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(view.getContext(),b.getText().toString() + " clicked",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),b.getText().toString() + " clicked",Toast.LENGTH_SHORT).show();
                 }
             });
         }
