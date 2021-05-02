@@ -23,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -33,6 +34,8 @@ import static android.view.View.VISIBLE;
 public class QuizFragment extends Fragment {
 
     int qno = 1;
+    int total = 7;
+    ArrayList<String> questions;
 
     Button back,next;
     InternetConnectivity internetConnectivity;
@@ -41,6 +44,11 @@ public class QuizFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_quiz,container,false);
+
+        questions = new ArrayList<>();
+        for(int i=1;i<=total;i++)
+            questions.add(String.valueOf(i));
+        Collections.shuffle(questions);
 
         View root  = view.findViewById(R.id.coordinator);
 
@@ -96,8 +104,9 @@ public class QuizFragment extends Fragment {
         fragmentTransaction.replace(R.id.frame,loadQuestionFragment);
         fragmentTransaction.commit();
 
+        String q = questions.get(qno-1);
 
-        databaseReference.child("question" + qno).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        databaseReference.child("question" + q).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (!task.isSuccessful()) {
@@ -127,7 +136,7 @@ public class QuizFragment extends Fragment {
                     else
                         back.setVisibility(GONE);
 
-                    if(qno==7)
+                    if(qno==total)
                         next.setVisibility(GONE);
                     else
                         next.setVisibility(VISIBLE);
