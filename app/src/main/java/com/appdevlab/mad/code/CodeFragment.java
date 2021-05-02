@@ -57,7 +57,7 @@ public class CodeFragment extends Fragment {
             public void onClick(View v) {
                 ClipboardManager clipboardManager = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
                 clipboardManager.setText(copyCodeText);
-                Toast.makeText(view.getContext(), "Code copied to clipboard", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Code copied to clipboard", Toast.LENGTH_SHORT).show();
             }
         });
 

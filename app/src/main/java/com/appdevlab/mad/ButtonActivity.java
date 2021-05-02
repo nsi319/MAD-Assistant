@@ -62,27 +62,22 @@ public class ButtonActivity extends AppCompatActivity {
         });
 
 
-        // Attach Button Fragment
         frgButton = new ButtonFragment();
         ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.button_frg_container, frgButton).commit();
 
-        // Attach ImageButton Fragment
         frgImageButton = new ImageButtonFragment();
         ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.image_button_frg_container, frgImageButton).commit();
 
-        // Attach ToggleButton Fragment
         frgToggleButton = new ToggleSwitchButtonFragment();
         ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.toggle_button_frg_container, frgToggleButton).commit();
 
-        // Attach Checkbox Fragment
         frgCheckbox = new CheckboxFragment();
         ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.checkbox_frg_container, frgCheckbox).commit();
 
-        // Attach Checkbox Fragment
         frgRadioButton = new RadioButtonFragment();
         ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.radio_button_frg_container, frgRadioButton).commit();

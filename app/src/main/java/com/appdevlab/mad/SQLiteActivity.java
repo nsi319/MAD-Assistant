@@ -41,19 +41,19 @@ public class SQLiteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(roll.getText().toString().equals("") || name.getText().toString().equals(""))
-                    Toast.makeText(getApplicationContext(),"Please enter required fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SQLiteActivity.this,"Please enter required fields", Toast.LENGTH_SHORT).show();
                 else {
-                    databaseManager = new DatabaseManager(getApplicationContext());
+                    databaseManager = new DatabaseManager(SQLiteActivity.this);
                     databaseManager.open();
 
                     Student student = new Student(roll.getText().toString(),name.getText().toString());
 
                     Boolean res = databaseManager.addStudent(student);
                     if(res) {
-                        Toast.makeText(getApplicationContext(), "New Student: " + name.getText().toString() + " added successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SQLiteActivity.this, "New Student: " + name.getText().toString() + " added successfully", Toast.LENGTH_SHORT).show();
                     }
                     else
-                        Toast.makeText(getApplicationContext(),"New Student addition unsuccessful",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SQLiteActivity.this,"New Student addition unsuccessful",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -68,6 +68,7 @@ public class SQLiteActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(SQLiteActivity.this,"Reset Update Student Fields", Toast.LENGTH_SHORT).show();
                 found = -1;
                 rollUpdate.setEnabled(true);
                 findViewById(R.id.nameLayout).setVisibility(View.GONE);
@@ -88,19 +89,19 @@ public class SQLiteActivity extends AppCompatActivity {
         findViewById(R.id.find).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseManager databaseManager = new DatabaseManager(getApplicationContext());
+                DatabaseManager databaseManager = new DatabaseManager(SQLiteActivity.this);
                 databaseManager.open();
 
                 if(rollUpdate.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(),"Please enter roll number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SQLiteActivity.this,"Please enter roll number", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     student = databaseManager.getStudent(rollUpdate.getText().toString());
                     if (student == null) {
-                        Toast.makeText(getApplicationContext(), "Student: " + rollUpdate.getText().toString() + " not found", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SQLiteActivity.this, "Student: " + rollUpdate.getText().toString() + " not found", Toast.LENGTH_SHORT).show();
                         found = -1;
                     } else {
-                        Toast.makeText(getApplicationContext(), "Student: " + rollUpdate.getText().toString() + " found!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SQLiteActivity.this, "Student: " + rollUpdate.getText().toString() + " found!", Toast.LENGTH_SHORT).show();
                         rollUpdate.setEnabled(false);
                         found = 1;
                         findViewById(R.id.nameLayout).setVisibility(View.VISIBLE);
@@ -117,19 +118,19 @@ public class SQLiteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(rollUpdate.getText().equals("") || nameUpdate.getText().equals(""))
-                    Toast.makeText(getApplicationContext(),"Please enter required fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SQLiteActivity.this,"Please enter required fields", Toast.LENGTH_SHORT).show();
                 else {
-                    DatabaseManager databaseManager = new DatabaseManager(getApplicationContext());
+                    DatabaseManager databaseManager = new DatabaseManager(SQLiteActivity.this);
                     databaseManager.open();
 
                     Student student = new Student(rollUpdate.getText().toString(),nameUpdate.getText().toString());
                     Boolean res = databaseManager.updateStudent(student);
 
                     if(res) {
-                        Toast.makeText(getApplicationContext(), "Student: " + rollUpdate.getText().toString() + " updated successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SQLiteActivity.this, "Student: " + rollUpdate.getText().toString() + " updated successfully", Toast.LENGTH_SHORT).show();
                     }
                     else
-                        Toast.makeText(getApplicationContext(),"Student updation failed",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SQLiteActivity.this,"Student updation failed",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -140,7 +141,7 @@ public class SQLiteActivity extends AppCompatActivity {
         findViewById(R.id.get).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseManager databaseManager = new DatabaseManager(getApplicationContext());
+                DatabaseManager databaseManager = new DatabaseManager(SQLiteActivity.this);
                 databaseManager.open();
                 List<Student> students = databaseManager.getAllStudents();
                 if(students.size()==0) {

@@ -65,7 +65,7 @@ public class MaterialActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Clicked on Floating Action Button",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MaterialActivity.this,"Clicked on Floating Action Button",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -82,18 +82,18 @@ public class MaterialActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-                    Toast.makeText(getApplicationContext(),"Opening Bottom Sheet",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MaterialActivity.this,"Opening Bottom Sheet",Toast.LENGTH_SHORT).show();
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 }
                 else
-                    Toast.makeText(getApplicationContext(),"Bottom Sheet is already open",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MaterialActivity.this,"Bottom Sheet is already open",Toast.LENGTH_SHORT).show();
             }
         });
 
         closeBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Closing Bottom Sheet",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MaterialActivity.this,"Closing Bottom Sheet",Toast.LENGTH_SHORT).show();
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -93,13 +94,13 @@ public class MenuActivity extends AppCompatActivity {
         btnPopupMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(getApplicationContext(),btnPopupMenu);
+                PopupMenu popupMenu = new PopupMenu(MenuActivity.this,btnPopupMenu);
                 popupMenu.getMenuInflater().inflate(R.menu.menu_list,popupMenu.getMenu());
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(getApplicationContext(),"Selected option " + item.getTitle().toString(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MenuActivity.this,"Selected option " + item.getTitle().toString(),Toast.LENGTH_SHORT).show();
                         return true;
                     }
                 });
@@ -126,13 +127,13 @@ public class MenuActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.add:
-                Toast.makeText(getApplicationContext(),"Selected Add for " + place,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuActivity.this,"Selected Add for " + place,Toast.LENGTH_SHORT).show();
                 break;
             case R.id.edit:
-                Toast.makeText(getApplicationContext(),"Selected Edit for " + place,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuActivity.this,"Selected Edit for " + place,Toast.LENGTH_SHORT).show();
                 break;
             case R.id.delete:
-                Toast.makeText(getApplicationContext(),"Selected Delete for " + place,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuActivity.this,"Selected Delete for " + place,Toast.LENGTH_SHORT).show();
                 break;
             default:
                 return false;
