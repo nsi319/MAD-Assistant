@@ -83,7 +83,7 @@ public class PickerActivity extends AppCompatActivity {
                         month = month + 1;
                         String date = String.format("%02d",dayOfMonth) + "/" + String.format("%02d",month) + "/" + String.format("%04d",year);
                         btnDatePicker.setText(date);
-                        Toast.makeText(getApplicationContext(),"Selected date: " + date, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PickerActivity.this,"Selected date: " + date, Toast.LENGTH_SHORT).show();
                     }
                 }, mYear, mMonth,mDay);
 
@@ -104,7 +104,7 @@ public class PickerActivity extends AppCompatActivity {
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         String time = selectedHour + ":" + selectedMinute;
                         btnTimePicker.setText(time);
-                        Toast.makeText(getApplicationContext(),"Selected time: " + time, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PickerActivity.this,"Selected time: " + time, Toast.LENGTH_SHORT).show();
 
                     }
                 }, hour, minute, true);
@@ -118,7 +118,7 @@ public class PickerActivity extends AppCompatActivity {
         numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                Toast.makeText(getApplicationContext(),"Selected number: " + newVal,Toast.LENGTH_SHORT).show();
+                Toast.makeText(PickerActivity.this,"Selected number: " + newVal,Toast.LENGTH_SHORT).show();
             }
         });
     }

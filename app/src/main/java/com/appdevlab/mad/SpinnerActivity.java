@@ -80,7 +80,7 @@ public class SpinnerActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(),parent.getItemAtPosition(position).toString() + " selected",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,parent.getItemAtPosition(position).toString() + " selected",Toast.LENGTH_SHORT).show();
     }
 
     @Override

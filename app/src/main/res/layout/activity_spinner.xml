@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
+    android:theme="@style/AppTheme"
     tools:context=".SpinnerActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
-            android:src="@drawable/ic_arrow_drop_down_black_24dp" />
+            android:src="@drawable/ic_touch_app_24dp" />
     </RelativeLayout>
 
     <TextView

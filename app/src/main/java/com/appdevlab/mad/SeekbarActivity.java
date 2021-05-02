@@ -59,7 +59,7 @@ public class SeekbarActivity extends AppCompatActivity {
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Toast.makeText(getApplicationContext(), String.format("Seekbar progress %s%s", progress,"%"),Toast.LENGTH_SHORT).show();
+                Toast.makeText(SeekbarActivity.this, String.format("Seekbar progress %s%s", progress,"%"),Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -76,7 +76,7 @@ public class SeekbarActivity extends AppCompatActivity {
         seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Toast.makeText(getApplicationContext(),"Seekbar (Discrete) progress: " + String.valueOf(progress),Toast.LENGTH_SHORT).show();
+                Toast.makeText(SeekbarActivity.this,"Seekbar (Discrete) progress: " + String.valueOf(progress),Toast.LENGTH_SHORT).show();
             }
 
             @Override

@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/r1"
+    android:layout_gravity="center"
+    android:gravity="center"
     >
 
     <RelativeLayout
@@ -17,8 +19,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvNumberOfQuestions"
-            android:text="Quizzine"
+            android:id="@+id/title"
+            android:text="Question 1"
             android:gravity="center"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -27,59 +29,44 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvQuestion"
-            android:layout_below="@+id/tvNumberOfQuestions"
-            android:text="ICT questions"
+            android:id="@+id/question"
+            android:layout_below="@+id/title"
+            android:text="Question"
             android:textSize="18sp"
             android:layout_marginTop="10dp"
             android:textStyle="normal"
             android:textColor="#000000"/>
 
         <RadioGroup
-            android:id="@+id/radioGroup1"
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvQuestion"
+            android:layout_below="@+id/question"
             android:layout_marginTop="6dp"
             android:layout_weight="0.04" >
             <RadioButton
-                android:id="@+id/radio0"
+                android:id="@+id/option1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Option 1" />
             <RadioButton
-                android:id="@+id/radio1"
+                android:id="@+id/option2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Option 2" />
             <RadioButton
-                android:id="@+id/radio2"
+                android:id="@+id/option3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Option 3" />
             <RadioButton
-                android:id="@+id/radio3"
+                android:id="@+id/option4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Option 4" />
         </RadioGroup>
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@+id/relativeLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
-        android:background="@drawable/rounded_selected_button"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
-        android:text="Next"
-        android:textAllCaps="false"
-        android:textColor="#ffffff" />
 
 
 </RelativeLayout>
