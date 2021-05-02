@@ -2,7 +2,6 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -13,11 +12,17 @@
     </style>
 
     <style name="ModuleTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">sans-serif-condensed</item>
+    </style>
+    <style name="CircularProgress" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
     </style>
     <style name="AppTheme.TextAppearance.Popup" parent="TextAppearance.MaterialComponents.Caption">
         <item name="fontFamily">sans-serif-condensed</item>
@@ -28,6 +33,7 @@
     <style name="BottomNavigation.ActiveItemTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
+
     </style>
     <style name="BottomNavigation.InactiveItemTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textColor">#F5F5F5</item>

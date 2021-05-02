@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                         new int[]{android.R.attr.state_checked}
                 },
                 new int[]{
-                        Color.GRAY,
+                        Color.BLACK,
                         getResources().getColor(R.color.colorPrimaryDark),
                 });
 

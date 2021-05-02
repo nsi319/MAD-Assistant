@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:gravity="center">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
+        ads:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@android:color/white"
+        ads:strokeColor="@color/colorPrimaryDark"
+        ads:strokeWidth="2dp"
+        app:state_dragged="false">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:theme="@style/CircularProgress"
+            />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

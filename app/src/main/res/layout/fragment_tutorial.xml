@@ -24,7 +24,6 @@
                 android:background="@color/colorPrimaryDark" />
 
             <TextView
-                android:id="@+id/main_tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -36,8 +35,7 @@
                 android:textSize="32sp" />
         </FrameLayout>
 
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
@@ -52,8 +50,7 @@
                 android:columnOrderPreserved="false"
                 android:padding="14dp">
 
-                <!--Row 1-->
-                <!-- Col 1 -->
+
                 <androidx.cardview.widget.CardView
                     style="@style/main_grid_cardview">
 
@@ -79,8 +76,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!--Row 1-->
-                <!-- Col 2 -->
+
                 <androidx.cardview.widget.CardView
                     style="@style/main_grid_cardview">
 
@@ -106,8 +102,6 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!--Row 2-->
-                <!-- Col 1 -->
 
                 <androidx.cardview.widget.CardView
                     style="@style/main_grid_cardview">
@@ -134,8 +128,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!--Row 2-->
-                <!-- Col 2 -->
+
                 <androidx.cardview.widget.CardView
                     style="@style/main_grid_cardview">
 
@@ -161,8 +154,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!--Row 3-->
-                <!-- Col 1 -->
+
 
                 <androidx.cardview.widget.CardView
                     style="@style/main_grid_cardview">
@@ -189,8 +181,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!--Row 3-->
-                <!-- Col 2 -->
+
                 <androidx.cardview.widget.CardView
                     style="@style/main_grid_cardview">
 
@@ -216,9 +207,6 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!--Placeholder-->
-                <!--Row 4-->
-                <!-- Col 1 -->
                 <androidx.cardview.widget.CardView
                     style="@style/main_grid_cardview">
 
@@ -244,8 +232,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!--Row 4-->
-                <!-- Col 2 -->
+
                 <androidx.cardview.widget.CardView
                     style="@style/main_grid_cardview">
 

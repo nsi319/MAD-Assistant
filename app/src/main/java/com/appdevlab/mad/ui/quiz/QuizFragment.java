@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,34 +15,71 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.appdevlab.mad.R;
+import com.appdevlab.mad.model.InternetConnectivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 public class QuizFragment extends Fragment {
 
     int qno = 1;
+
+    Button back,next;
+    InternetConnectivity internetConnectivity;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_quiz,container,false);
 
+        View root  = view.findViewById(R.id.coordinator);
 
-        addNewQuestion(qno);
+        internetConnectivity = new InternetConnectivity();
 
-        view.findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
+        next = view.findViewById(R.id.next);
+        back = view.findViewById(R.id.back);
+
+        LoadQuestionFragment loadQuestionFragment = new LoadQuestionFragment();
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame,loadQuestionFragment);
+        fragmentTransaction.commit();
+
+
+        if(internetConnectivity.isInternetAvailable())
+            addNewQuestion(qno);
+        else
+            Snackbar.make(root,"No Internet Connection", Snackbar.LENGTH_LONG).show();
+
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 qno++;
-                addNewQuestion(qno);
+                if(internetConnectivity.isInternetAvailable())
+                    addNewQuestion(qno);
+                else
+                    Snackbar.make(root,"No Internet Connection", Snackbar.LENGTH_LONG).show();
+            }
+        });
 
-                if(qno==7)
-                    view.findViewById(R.id.next).setVisibility(GONE);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                qno--;
+
+                if(internetConnectivity.isInternetAvailable())
+                    addNewQuestion(qno);
+                else
+                    Snackbar.make(root,"No Internet Connection", Snackbar.LENGTH_LONG).show();
             }
         });
 
@@ -52,6 +91,11 @@ public class QuizFragment extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference("quiz");
 
+        LoadQuestionFragment loadQuestionFragment = new LoadQuestionFragment();
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame,loadQuestionFragment);
+        fragmentTransaction.commit();
+
 
         databaseReference.child("question" + qno).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -61,17 +105,30 @@ public class QuizFragment extends Fragment {
                     Toast.makeText(getActivity(),"Error fetching questions",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(getActivity(),"Fetched questions successfully",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Fetched question " + qno + " successfully",Toast.LENGTH_SHORT).show();
                     String title = "QUESTION " + qno;
                     String value = String.valueOf(task.getResult().getValue());
                     String question = value.split("!!ans!!")[0];
                     String []options = value.split("!!ans!!")[1].split(";");
 
-                    QuestionFragment questionFragment = new QuestionFragment(title,question,options[0],options[1],options[2],options[3]);
+                    String answer = options[0];
 
+                    List<String> optionsList = Arrays.asList(options);
+                    Collections.shuffle(optionsList);
+
+
+                    QuestionFragment questionFragment = new QuestionFragment(title,question,answer,optionsList.get(0),optionsList.get(1),optionsList.get(2),optionsList.get(3));
                     FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.frame,questionFragment);
                     fragmentTransaction.commit();
+
+                    if(qno>1)
+                        back.setVisibility(VISIBLE);
+                    else
+                        back.setVisibility(GONE);
+
+                    if(qno==7)
+                        next.setVisibility(GONE);
 
                 }
             }

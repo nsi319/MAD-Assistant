@@ -3,17 +3,27 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/r1"
+    xmlns:app="http://schemas.android.com/tools"
     android:layout_gravity="center"
-    android:gravity="center"
-    >
+    android:gravity="center">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        ads:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@android:color/white"
+        ads:strokeColor="@color/colorPrimaryDark"
+        ads:strokeWidth="2dp"
+        app:state_dragged="false">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:background="@drawable/box_shape"
         android:id="@+id/relativeLayout">
 
         <TextView
@@ -38,7 +48,7 @@
             android:textColor="#000000"/>
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/question"
@@ -66,7 +76,21 @@
                 android:text="Option 4" />
         </RadioGroup>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/result"
+            android:layout_below="@+id/radio_group"
+            android:visibility="gone"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_green_dark"/>
+
     </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 
 </RelativeLayout>
