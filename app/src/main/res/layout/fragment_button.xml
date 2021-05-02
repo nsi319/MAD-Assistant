@@ -6,7 +6,7 @@
     tools:context=".component.button.ButtonFragment">
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Button" />
 
     <Button

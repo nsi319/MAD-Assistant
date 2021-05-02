@@ -25,7 +25,7 @@
         >
 
         <TextView
-            style="@style/module_text_info"
+            style="@style/component_name"
             android:text="Context Menu (Long press item to show menu)" />
 
         <ListView
@@ -35,7 +35,7 @@
             android:layout_margin="5dp" />
 
         <TextView
-            style="@style/module_text_info"
+            style="@style/component_name"
             android:text="Popup Menu" />
 
         <androidx.cardview.widget.CardView

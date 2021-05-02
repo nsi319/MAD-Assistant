@@ -6,7 +6,7 @@
     tools:context=".component.button.CheckboxFragment">
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Check Box" />
 
     <CheckBox

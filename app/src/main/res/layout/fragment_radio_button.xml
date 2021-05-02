@@ -6,7 +6,7 @@
     tools:context=".component.button.RadioButtonFragment">
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Radio Button" />
 
     <TextView

@@ -7,7 +7,7 @@
 
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Toggle Button" />
 
     <ToggleButton
@@ -22,7 +22,7 @@
         />
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Switch" />
 
     <Switch

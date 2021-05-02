@@ -52,7 +52,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    style="@style/main_grid_cardview">
+                    style="@style/tutorial_card">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
                             android:tint="@color/colorPrimaryDark" />
 
                         <TextView
-                            style="@style/main_grid_item_text"
+                            style="@style/tutorial_text"
                             android:text="TextView &amp; EditText" />
                     </LinearLayout>
 
@@ -78,7 +78,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    style="@style/main_grid_cardview">
+                    style="@style/tutorial_card">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                             android:tint="@android:color/holo_green_dark"/>
 
                         <TextView
-                            style="@style/main_grid_item_text"
+                            style="@style/tutorial_text"
                             android:text="Buttons"/>
                     </LinearLayout>
 
@@ -104,7 +104,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    style="@style/main_grid_cardview">
+                    style="@style/tutorial_card">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -122,7 +122,7 @@
                             android:tint="@android:color/holo_red_dark"/>
 
                         <TextView
-                            style="@style/main_grid_item_text"
+                            style="@style/tutorial_text"
                             android:text="Seekbar &amp; Progressbar"/>
                     </LinearLayout>
 
@@ -130,7 +130,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    style="@style/main_grid_cardview">
+                    style="@style/tutorial_card">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -148,7 +148,7 @@
                             android:tint="@android:color/holo_blue_dark"/>
 
                         <TextView
-                            style="@style/main_grid_item_text"
+                            style="@style/tutorial_text"
                             android:text="Pickers" />
                     </LinearLayout>
 
@@ -157,7 +157,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    style="@style/main_grid_cardview">
+                    style="@style/tutorial_card">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -175,7 +175,7 @@
                             android:tint="@color/colorPrimaryDark"/>
 
                         <TextView
-                            style="@style/main_grid_item_text"
+                            style="@style/tutorial_text"
                             android:text="Spinner" />
                     </LinearLayout>
 
@@ -183,7 +183,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    style="@style/main_grid_cardview">
+                    style="@style/tutorial_card">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -201,14 +201,14 @@
                             android:tint="@android:color/holo_orange_light"/>
 
                         <TextView
-                            style="@style/main_grid_item_text"
+                            style="@style/tutorial_text"
                             android:text="Menu" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    style="@style/main_grid_cardview">
+                    style="@style/tutorial_card">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -226,7 +226,7 @@
                             android:tint="@android:color/holo_purple"/>
 
                         <TextView
-                            style="@style/main_grid_item_text"
+                            style="@style/tutorial_text"
                             android:text="Material Design"/>
                     </LinearLayout>
 
@@ -234,7 +234,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    style="@style/main_grid_cardview">
+                    style="@style/tutorial_card">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -252,7 +252,7 @@
                             android:tint="@android:color/widget_edittext_dark"/>
 
                         <TextView
-                            style="@style/main_grid_item_text"
+                            style="@style/tutorial_text"
                             android:text="SQLite Database"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

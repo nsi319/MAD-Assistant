@@ -24,7 +24,7 @@
     >
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Seekbar"/>
 
     <SeekBar
@@ -37,7 +37,7 @@
         />
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Seekbar (Discrete)" />
 
     <SeekBar
@@ -51,7 +51,7 @@
         android:progress="6" />
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Progress Bar (Horizontal)" />
 
     <ProgressBar
@@ -62,10 +62,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="10dp"
+        android:theme="@style/CircularProgress"
         />
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Progress Bar (Circular)" />
 
     <ProgressBar
@@ -75,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="10dp"
+        android:theme="@style/CircularProgress"
         />
 
 

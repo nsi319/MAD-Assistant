@@ -129,7 +129,8 @@ public class QuizFragment extends Fragment {
 
                     if(qno==7)
                         next.setVisibility(GONE);
-
+                    else
+                        next.setVisibility(VISIBLE);
                 }
             }
         });

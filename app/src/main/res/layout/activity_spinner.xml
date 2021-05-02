@@ -24,7 +24,7 @@
         android:orientation="vertical"
         android:layout_margin="16dp">
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Spinner (Dialog)" />
 
     <RelativeLayout
@@ -54,7 +54,7 @@
     </RelativeLayout>
 
     <TextView
-        style="@style/module_text_info"
+        style="@style/component_name"
         android:text="Spinner (Dropdown)" />
 
     <RelativeLayout
