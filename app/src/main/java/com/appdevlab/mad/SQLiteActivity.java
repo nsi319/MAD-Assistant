@@ -39,11 +39,10 @@ public class SQLiteActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title)).setText("SQLite Database");
 
-
         Code code = new Code();
         javaCode  = code.getSqliteJava();
         xmlCode = code.getSqliteXml();
-        databaseCode = code.getSqliteDbManager();
+        databaseCode = code.getSqliteDatabase();
         managerCode = code.getSqliteDbManager();
         studentCode = code.getSqliteStudent();
 
