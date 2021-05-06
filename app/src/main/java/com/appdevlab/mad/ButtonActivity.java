@@ -151,5 +151,13 @@ public class ButtonActivity extends AppCompatActivity {
         };
         h.postDelayed(r, 500);
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(textToSpeech!=null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
+    }
 
 }
