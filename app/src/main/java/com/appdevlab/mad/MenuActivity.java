@@ -191,6 +191,7 @@ public class MenuActivity extends AppCompatActivity {
         }
         return true;
     }
+
     public void isTTSSpeaking(){
 
         final Handler h =new Handler();

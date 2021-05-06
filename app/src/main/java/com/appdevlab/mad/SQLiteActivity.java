@@ -2,7 +2,10 @@ package com.appdevlab.mad;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.text.Html;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
@@ -17,6 +20,7 @@ import com.appdevlab.mad.model.Student;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
+import java.util.Locale;
 
 import static android.view.View.GONE;
 
@@ -30,6 +34,12 @@ public class SQLiteActivity extends AppCompatActivity {
     FloatingActionButton codeFab;
     String javaCode, xmlCode, databaseCode, studentCode, managerCode, javaLocation,xmlLocation,databaseLocation, studentLocation, managerLocation;
 
+    TextToSpeech textToSpeech;
+    int play = 0;
+    String introduction = "Welcome to Android SQLite Example Tutorial. Android SQLite is the mostly preferred way to store data for android applications. Android SQLite is a very lightweight database which comes with Android OS. Android SQLite combines a clean SQL interface with a very small memory footprint and decent speed. For Android, SQLite is “baked into” the Android runtime, so every Android application can create its own SQLite databases. The basic operations on an Android SQLite database such as insert, update, fetch are given in this tutorial.";
+
+    TextView title;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,8 +47,44 @@ public class SQLiteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sqlite);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
-        ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title)).setText("SQLite Database");
+        title = ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title));
+        title.setText("SQLite Database");
 
+        textToSpeech = new TextToSpeech(SQLiteActivity.this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status==TextToSpeech.SUCCESS) {
+                    int ttsLanguage = textToSpeech.setLanguage(Locale.US);
+                    if(ttsLanguage == TextToSpeech.LANG_MISSING_DATA || ttsLanguage == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.d("MY_LOG_TAG","Language not supported");
+                    }
+                    Log.d("MY_LOG_TAG","TTS init successful");
+                }
+                else
+                    Log.d("MY_LOG_TAG","TTS init unsuccessful");
+            }
+        });
+
+
+
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(play==0) {
+                    Toast.makeText(SQLiteActivity.this,"Introduction started",Toast.LENGTH_SHORT).show();
+                    title.setCompoundDrawablesWithIntrinsicBounds(null,null,getDrawable(R.drawable.ic_pause_circle_outline_black_24dp),null);
+                    play=1;
+                    textToSpeech.speak(introduction, TextToSpeech.QUEUE_FLUSH, null);
+                    isTTSSpeaking();
+                }
+                else {
+                    play=0;
+                    title.setCompoundDrawablesWithIntrinsicBounds(null,null,getDrawable(R.drawable.ic_play_circle_outline_black_24dp),null);
+                    textToSpeech.stop();
+                    Toast.makeText(SQLiteActivity.this,"Introduction stopped",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         Code code = new Code();
         javaCode  = code.getSqliteJava();
         xmlCode = code.getSqliteXml();
@@ -203,5 +249,29 @@ public class SQLiteActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void isTTSSpeaking(){
+
+        final Handler h =new Handler();
+        Runnable r = new Runnable() {
+            public void run() {
+                if (!textToSpeech.isSpeaking()) {
+                    play=0;
+                    Log.d("MY_LOG_TAG","done");
+                    title.setCompoundDrawablesWithIntrinsicBounds(null,null,getDrawable(R.drawable.ic_play_circle_outline_black_24dp),null);
+                }
+                h.postDelayed(this, 500);
+            }
+        };
+        h.postDelayed(r, 500);
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(textToSpeech!=null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
     }
 }
