@@ -1,6 +1,8 @@
 package com.appdevlab.mad.ui.quiz;
 
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +17,13 @@ import androidx.fragment.app.Fragment;
 
 import com.appdevlab.mad.R;
 
+import java.util.Locale;
+
 public class QuestionFragment extends Fragment {
 
     String title, question, answer, option1, option2, option3, option4;
+    TextToSpeech textToSpeech;
+
 
     public QuestionFragment(String title, String question, String answer, String option1, String option2, String option3, String option4) {
         this.title = title;
@@ -44,6 +50,22 @@ public class QuestionFragment extends Fragment {
         RadioGroup radioGroup = view.findViewById(R.id.radio_group);
 
         TextView result = view.findViewById(R.id.result);
+
+        textToSpeech = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status==TextToSpeech.SUCCESS) {
+                    int ttsLanguage = textToSpeech.setLanguage(Locale.US);
+                    if(ttsLanguage == TextToSpeech.LANG_MISSING_DATA || ttsLanguage == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.d("MY_LOG_TAG","Language not supported");
+                    }
+                    Log.d("MY_LOG_TAG","TTS init successful");
+                }
+                else
+                    Log.d("MY_LOG_TAG","TTS init unsuccessful");
+            }
+        });
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -51,11 +73,14 @@ public class QuestionFragment extends Fragment {
                     result.setVisibility(View.VISIBLE);
                     result.setText("Correct Answer");
                     result.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+
+                    textToSpeech.speak("Hurray!!! that's the correct answer",TextToSpeech.QUEUE_FLUSH,null);
                 }
                 else {
                     result.setVisibility(View.VISIBLE);
                     result.setText("Incorrect Answer");
                     result.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+                    textToSpeech.speak("Oops!!! your answer is incorrect",TextToSpeech.QUEUE_FLUSH,null);
                 }
             }
         });
