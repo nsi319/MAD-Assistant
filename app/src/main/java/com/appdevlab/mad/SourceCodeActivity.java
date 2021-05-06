@@ -30,6 +30,7 @@ public class SourceCodeActivity extends AppCompatActivity {
     int count=2;
     ArrayList<String> newTabs, newCodes, newFileLocations;
 
+    TextView title;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,8 +38,9 @@ public class SourceCodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_source_code);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
-        ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title)).setText("Source Code");
-
+        title = ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tv_title));
+        title.setText("Source Code");
+        title.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
 
         javaCode = getIntent().getStringExtra("java");
         xmlCode = getIntent().getStringExtra("xml");

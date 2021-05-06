@@ -48,7 +48,7 @@ public class CodeFragment extends Fragment {
                 .setCode(code)
                 .setLanguage(Language.JAVA)
                 .setWrapLine(true)
-                .setFontSize(8)
+                .setFontSize(7)
                 .setZoomEnabled(true)
                 .setShowLineNumber(true)
                 .setStartLineNumber(0)
